@@ -34,7 +34,7 @@ export const MainRoutes = [
         children: []
       },
     ]
-  },
+  }/*,
   {
     id: 'SocialMenu',
     title: 'Social',
@@ -84,7 +84,7 @@ export const MainRoutes = [
         children: []
       },
     ]
-  },
+  }*/,
   {
     id: 'ArticlesMenu',
     title: 'Articles',
@@ -260,9 +260,9 @@ export const MainRoutes = [
 
 let menuRoutes = _.cloneDeep(MainRoutes);
 menuRoutes.unshift({
-  id: 'GridV2',
+  id: 'Dashboard',
   title: 'Start',
-  screen: Screens.GridV2,
+  screen: Screens.Dashboard,
   children: []
 },);
 

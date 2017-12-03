@@ -15,7 +15,7 @@ import {data} from '../../data';
 
 export class Articles4 extends React.Component {
   static navigationOptions = {
-    title: 'Article List'.toUpperCase()
+    title: 'Energy Solution'.toUpperCase()
   };
 
   constructor(props) {

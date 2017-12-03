@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View,
   Image,
-  Keyboard
+  Keyboard,
+  StatusBar
 } from 'react-native';
 import {
   RkButton,
@@ -14,6 +15,7 @@ import {
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import {NavigationActions} from 'react-navigation';
 
 export class SignUp extends React.Component {
   static navigationOptions = {
@@ -46,13 +48,18 @@ export class SignUp extends React.Component {
             <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
             <RkTextInput rkType='rounded' placeholder='Confirm Password' secureTextEntry={true}/>
             <GradientButton style={styles.save} rkType='large' text='SIGN UP' onPress={() => {
-              this.props.navigation.goBack()
+              StatusBar.setHidden(false, 'slide');
+            let toHome = NavigationActions.reset({
+              index: 0,
+              actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
+            });
+            this.props.navigation.dispatch(toHome)
             }}/>
           </View>
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Already have an account?</RkText>
-              <RkButton rkType='clear'  onPress={() => this.props.navigation.navigate('Login1')}>
+              <RkButton rkType='clear'  onPress={() => this.props.navigation.navigate('Login2')}>
                 <RkText rkType='header6'> Sign in now </RkText>
               </RkButton>
             </View>

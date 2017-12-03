@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View,
   Image,
-  Keyboard
+  Keyboard,
+  StatusBar
 } from 'react-native';
 import {
   RkButton,
@@ -14,6 +15,7 @@ import {FontAwesome} from '../../assets/icons';
 import {GradientButton} from '../../components/';
 import {RkTheme} from 'react-native-ui-kitten';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import {NavigationActions} from 'react-navigation';
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
@@ -46,7 +48,12 @@ export class LoginV2 extends React.Component {
             <RkTextInput rkType='rounded' placeholder='Username'/>
             <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
             <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
-              this.props.navigation.goBack()
+              StatusBar.setHidden(false, 'slide');
+            let toHome = NavigationActions.reset({
+              index: 0,
+              actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
+            });
+            this.props.navigation.dispatch(toHome)
             }}/>
           </View>
           <View style={styles.buttons}>

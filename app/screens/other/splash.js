@@ -60,10 +60,10 @@ export class SplashScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View>
-          <Image style={[styles.image, {width}]} source={require('../../assets/images/splashBack.png')}/>
+          <Image style={[styles.image, {width}]} source={require('../../assets/images/JustLightsplashscreen.png')}/>
           <View style={styles.text}>
-            <RkText rkType='light' style={styles.hero}>React Native</RkText>
-            <RkText rkType='logo' style={styles.appName}>UI Kitten</RkText>
+            <RkText rkType='light' style={styles.hero}>Save Your Energy</RkText>
+            <RkText rkType='logo' style={styles.appName}>Just Light Service</RkText>
           </View>
         </View>
         <ProgressBar

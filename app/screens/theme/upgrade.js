@@ -52,7 +52,7 @@ export class Upgrade extends React.Component {
             </RkText>
 
             <RkText rkType='h1' style={styles.header}>Free</RkText>
-            <RkText rkType='h2'>'9.99$'</RkText>
+            <RkText rkType='h2'>"9.99$"</RkText>
 
             <RkText rkType='h3'>Email Support</RkText>
             <RkText rkType='h3'>Limited Statistics</RkText>
@@ -71,7 +71,7 @@ export class Upgrade extends React.Component {
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.card}
             </RkText>
             <RkText rkType='h1' style={styles.header}>VIP</RkText>
-            <RkText rkType='h2'>'99.99$'</RkText>
+            <RkText rkType='h2'>"99.99$"</RkText>
 
             <RkText rkType='h3'>No Installation Charges</RkText>
             <RkText rkType='h3'>Discounts</RkText>

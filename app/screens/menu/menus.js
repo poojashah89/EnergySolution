@@ -26,6 +26,7 @@ import {GradientButton} from '../../components/';
 import {Walkthrough} from '../../components/walkthrough';
 import {Walkthrough1} from '../walkthroughs/walkthrough1';
 import {Walkthrough2} from '../walkthroughs/walkthrough2';
+import {LoginV2} from '../login/login2';
 //import {PaginationIndicator} from '../../components';
 
 import {data} from '../../data';
@@ -54,7 +55,8 @@ export class LoginMenu extends React.Component {
   };
   render() {
     return (
-     <CategoryMenu navigation={this.props.navigation} items={Routes.LoginRoutes}/>
+     //<CategoryMenu navigation={this.props.navigation} items={Routes.LoginRoutes}/>
+     this.props.navigation.navigate('LoginV2')
     )
   }
 }

@@ -98,19 +98,19 @@ export class Dashboard extends React.Component {
               </RkText>
               <RkText rkType='h3'>Rent Services</RkText>
             </RkButton>
-        </View>
-        <View style={chartBlockStyles}>
-            <DoughnutChart/>
-        </View>
-        <View style={chartBlockStyles}>
-            <AreaChart/>
-        </View>
-        <View style={chartBlockStyles}>
-            <ProgressChart/>
-        </View>
-        <View style={chartBlockStyles}>
-            <AreaSmoothedChart/>
-        </View>
+          </View>
+          <View style={chartBlockStyles}>
+              <DoughnutChart/>
+          </View>
+          <View style={chartBlockStyles}>
+              <AreaChart/>
+          </View>
+          <View style={chartBlockStyles}>
+              <ProgressChart/>
+          </View>
+          <View style={chartBlockStyles}>
+              <AreaSmoothedChart/>
+          </View>
         </ScrollView>
     )
   }

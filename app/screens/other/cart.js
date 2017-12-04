@@ -15,7 +15,8 @@ import {
 } from 'react-native-ui-kitten';
 import {
   RkSwitch,
-  FindFriends
+  FindFriends,
+  GradientButton
 } from '../../components';
 import {FontAwesome} from '../../assets/icons';
 

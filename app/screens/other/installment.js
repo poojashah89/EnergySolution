@@ -14,10 +14,11 @@ import {
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import {Payments} from './payments';
 
 export class Installment extends React.Component {
   static navigationOptions = {
-    header: null
+    title: 'PAYMENT TYPE'.toUpperCase()
   };
 
   constructor(props) {
@@ -37,18 +38,18 @@ export class Installment extends React.Component {
         onStartShouldSetResponder={ (e) => true}
         onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={{alignItems: 'center'}}>
-          {renderIcon()}
-          <RkText rkType='h1'>Pay in Installment or Full Amount</RkText>
+
+          <RkText rkType='h1'>Pay in Installment or Full Amount?</RkText>
         </View>
         <View style={styles.content}>
           <View>
               <RkText >If you choose to pay in Installments an additional 2% will be charged</RkText>
 
             <GradientButton style={styles.save} rkType='large' text='Pay in Installments' onPress={() => {
-              this.props.navigation.goBack()
+              this.props.navigation.navigate('Payments')
             }}/>
             <GradientButton style={styles.save} rkType='large' text='Full Payment' onPress={() => {
-              this.props.navigation.goBack()
+              this.props.navigation.navigate('Payments')
             }}/>
           </View>
 

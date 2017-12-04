@@ -168,6 +168,24 @@ export const MainRoutes = [
         screen: MyCart.Cart,
         children: []
       },
+      {
+      id: 'Installment',
+      title: 'Installment',
+      screen: Screens.Installment,
+      children: []
+    },
+    {
+    id: 'Payments',
+    title: 'Payments',
+    screen: Screens.Payments,
+    children: []
+  },
+  {
+  id: 'PaymentConfirm',
+  title: 'Payment Confirmation',
+  screen: Screens.PaymentConfirm,
+  children: []
+},
         {
           id: 'Side',
           title: 'Side Menu',

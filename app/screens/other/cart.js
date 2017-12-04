@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Screens from '../../screens/index';
+import {Installment} from './installment';
 import {
   ScrollView,
   View,
@@ -69,7 +70,7 @@ export class Cart extends React.Component {
               </TouchableOpacity>
           </View>
         </View>
-        
+
         <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('Installment')}>Lease Service</RkButton>
 
       </ScrollView>

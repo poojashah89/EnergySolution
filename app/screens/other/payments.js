@@ -14,10 +14,11 @@ import {
 } from 'react-native-ui-kitten';
 import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+import {PaymentConfirm} from './paymentConfirmation';
 
 export class Payments extends React.Component {
   static navigationOptions = {
-    header: null
+    title: 'CONFIRMATION'.toUpperCase()
   };
 
   constructor(props) {
@@ -27,8 +28,8 @@ export class Payments extends React.Component {
   render() {
     let renderIcon = () => {
       if (RkTheme.current.name === 'light')
-        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
-      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
+        return <Image style={styles.image} source={require('../../assets/images/PaymentLogo.png')}/>;
+      return <Image style={styles.image} source={require('../../assets/images/PaymentLogo.png')}/>
     };
     return (
       <RkAvoidKeyboard
@@ -36,7 +37,7 @@ export class Payments extends React.Component {
         onStartShouldSetResponder={ (e) => true}
         onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={{alignItems: 'center'}}>
-          {renderIcon()}
+      {renderIcon()}
           <RkText rkType='h1'>Payments</RkText>
         </View>
         <View style={styles.content}>
@@ -48,7 +49,7 @@ export class Payments extends React.Component {
             <RkText >CVC/CVV</RkText>
             <RkTextInput rkType='rounded' placeholder='***' secureTextEntry={true}/>
             <GradientButton style={styles.save} rkType='large' text='Pay Now' onPress={() => {
-              this.props.navigation.goBack()
+              this.props.navigation.navigate('PaymentConfirm')
             }}/>
 
           </View>

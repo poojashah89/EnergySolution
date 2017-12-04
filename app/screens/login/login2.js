@@ -81,9 +81,7 @@ export class LoginV2 extends React.Component {
 
   render() {
     let renderIcon = () => {
-      if (RkTheme.current.name === 'light')
-        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
-      return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
+        return <Image style={styles.image} source={require('../../assets/images/JustLightsplashscreen.png')}/>
     };
 
     return (
@@ -93,8 +91,7 @@ export class LoginV2 extends React.Component {
         onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={styles.header}>
           {renderIcon()}
-          <RkText rkType='light h1'>React Native</RkText>
-          <RkText rkType='logo h0'>UI Kitten</RkText>
+          <RkText rkType='logo h0'>Just Light</RkText>
         </View>
         <View style={styles.content}>
           <View>

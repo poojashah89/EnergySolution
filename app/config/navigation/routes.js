@@ -181,11 +181,17 @@ export const MainRoutes = [
         children: []
       },
       {
-      id: 'Installment',
-      title: 'Installment',
-      screen: Screens.Installment,
+      id: 'PaymentType',
+      title: 'PaymentType',
+      screen: Screens.PaymentType,
       children: []
     },
+    {
+    id: 'Installment',
+    title: 'Installment',
+    screen: Screens.Installment,
+    children: []
+  },
     {
     id: 'Payments',
     title: 'Payments',

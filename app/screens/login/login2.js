@@ -24,7 +24,49 @@ export class LoginV2 extends React.Component {
 
   constructor(props) {
     super(props);
+    //schema for post request
+    this.state = {
+      email: '',
+      password: ''
+   }
   }
+  // create handlers for schema
+  handleEmail = (text) => {
+     this.setState({ email: text })
+  }
+  handlePassword = (text) => {
+     this.setState({ password: text })
+  }
+
+//function for login http request
+  login = (email, pass) => {
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/user/login', {
+         method: 'POST',
+         headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+         email: email,
+         password: pass
+         })
+      }).then(response => {
+        var obj= {};
+        obj= response._bodyInit;
+        var res = JSON.parse(obj);
+        if(res.success==1){
+          //redirect to the dashboard page
+          StatusBar.setHidden(false, 'slide');
+          let toHome = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
+        });
+        this.props.navigation.dispatch(toHome)
+      }
+    }).catch(error => {
+      console.error(error);
+    });
+   }
 
   render() {
     let renderIcon = () => {
@@ -45,29 +87,14 @@ export class LoginV2 extends React.Component {
         </View>
         <View style={styles.content}>
           <View>
-            <RkTextInput rkType='rounded' placeholder='Username'/>
-            <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true}/>
-            <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress={() => {
-              StatusBar.setHidden(false, 'slide');
-            let toHome = NavigationActions.reset({
-              index: 0,
-              actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
-            });
-            this.props.navigation.dispatch(toHome)
-            }}/>
+            <RkTextInput rkType='rounded' placeholder='Email' onChangeText = {this.handleEmail}/>
+            <RkTextInput rkType='rounded' placeholder='Password' secureTextEntry={true} onChangeText = {this.handlePassword}/>
+            <GradientButton style={styles.save} rkType='large' text='LOGIN' onPress = {
+              //passing params to login function
+                  () => this.login(this.state.email, this.state.password)
+               }
+          />
           </View>
-          <View style={styles.buttons}>
-            <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero'>{FontAwesome.twitter}</RkText>
-            </RkButton>
-            <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero'>{FontAwesome.google}</RkText>
-            </RkButton>
-            <RkButton style={styles.button} rkType='social'>
-              <RkText rkType='awesome hero'>{FontAwesome.facebook}</RkText>
-            </RkButton>
-          </View>
-
           <View style={styles.footer}>
             <View style={styles.textRow}>
               <RkText rkType='primary3'>Don’t have an account?</RkText>

@@ -65,7 +65,7 @@ export class Settings extends React.Component {
                       onValueChange={(shouldRefresh) => this.setState({shouldRefresh})}/>
           </View>
         </View>
-        <View style={styles.section}>
+        /*<View style={styles.section}>
           <View style={[styles.row, styles.heading]}>
             <RkText rkType='primary header6'>FIND FRIENDS</RkText>
           </View>
@@ -88,7 +88,7 @@ export class Settings extends React.Component {
               this.setState({facebookEnabled: !this.state.facebookEnabled})
             }}/>
           </View>
-        </View>
+        </View>*/
 
         <View style={styles.section}>
           <View style={[styles.row, styles.heading]}>

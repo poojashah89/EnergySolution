@@ -22,10 +22,10 @@ import {
 } from '../../components/';
 
 
-export class Dashboard extends React.Component {
+export class AdminDashboard extends React.Component {
 
   static navigationOptions = {
-    title: 'Customer Dashboard'.toUpperCase()
+    title: 'Admin Dashboard'.toUpperCase()
   };
 
   constructor(props) {

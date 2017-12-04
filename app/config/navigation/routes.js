@@ -3,6 +3,27 @@ import * as Screens from '../../screens/index';
 import * as MyCart from '../../screens/index';
 import _ from 'lodash';
 
+export const AdminRoutes = [
+  {
+    id: 'AdminDashboardsMenu',
+    title: 'Admin Dashboard',
+    icon: FontIcons.dashboard,
+    screen: Screens.AdminDashboardMenu,
+    children: [{
+      id: 'AdminDashboard',
+      title: 'AdminDashboard',
+      screen: Screens.AdminDashboard,
+      children: []
+    }
+    /*{
+      id: 'GridV1',
+      title: 'Grid Menu V1',
+      screen: Screens.GridV1,
+      children: []
+    }*/]
+  }
+];
+
 export const MainRoutes = [
   /*,
   {
@@ -246,7 +267,7 @@ export const MainRoutes = [
       icon: FontIcons.login,
       screen: Screens.LoginMenu,
       children: [
-        /*{
+        {
           id: 'Login1',
           title: 'Login V1',
           screen: Screens.LoginV1,
@@ -269,7 +290,7 @@ export const MainRoutes = [
           title: 'Password Recovery',
           screen: Screens.PasswordRecovery,
           children: []
-        },*/
+        },
       ]
     },
 ];

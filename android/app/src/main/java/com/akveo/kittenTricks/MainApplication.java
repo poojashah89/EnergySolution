@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.facebook.react.ReactApplication;
+import com.beefe.picker.PickerViewPackage;
 import io.realm.react.RealmReactPackage;
 import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.horcrux.svg.SvgPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerViewPackage(),
             new RealmReactPackage(),
             new GoogleAnalyticsBridgePackage(),
             new LinearGradientPackage(),

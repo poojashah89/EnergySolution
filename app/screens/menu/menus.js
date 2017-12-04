@@ -205,6 +205,83 @@ export class MessagingMenu extends React.Component {
   }
 }
 
+export class AdminDashboardMenu extends React.Component {
+  static navigationOptions = {
+    title: 'Dashboards'.toUpperCase()
+  };
+  render() {
+    return (
+      <CategoryMenu navigation={this.props.navigation} items={Routes.DashboardRoutes}/>
+    )
+  }
+
+
+    /*static navigationOptions = {
+      title: 'Admin Dashboard'.toUpperCase()
+    };
+
+    constructor(props) {
+      super(props);
+      console.log("inside admin dashboard");
+      this.data = {
+        statItems: [
+          {
+            name: 'Profile',
+            value: 'Profile',
+            //icon: 'github',
+            background: RkTheme.current.colors.dashboard.stars
+          },
+          {
+            name: 'Upgrade',
+            value: '2,256',
+            //icon: 'twitter',
+            background: RkTheme.current.colors.dashboard.tweets
+          },
+          {
+            name: 'Rent',
+            value: '1,124',
+            //icon: 'facebook',
+            background: RkTheme.current.colors.dashboard.likes
+          },
+        ]
+      };
+    }
+
+    renderStatItem(item) {
+      return (
+        <View style={[styles.statItemContainer, {backgroundColor: item.background}]} key={item.name}>
+          <View>
+            //<RkText rkType='header6' style={styles.statItemValue}>{item.value}</RkText>
+            <RkText rkType='secondary7' style={styles.statItemName}>{item.name}</RkText>
+          </View>
+          //<RkText rkType='awesome hero' style={styles.statItemIcon}>{FontAwesome[item.icon]}</RkText>
+        </View>
+      )
+    }
+
+    render() {
+      let chartBlockStyles = [styles.chartBlock, {backgroundColor: RkTheme.current.colors.control.background}];
+      return (
+        <ScrollView style={styles.screen}>
+          <View style={styles.statItems}>
+            {this.data.statItems.map(item => this.renderStatItem(item))}
+          </View>
+          <View style={chartBlockStyles}>
+            <DoughnutChart/>
+          </View>
+          <View style={chartBlockStyles}>
+            <AreaChart/>
+          </View>
+          <View style={chartBlockStyles}>
+            <ProgressChart/>
+          </View>
+          <View style={chartBlockStyles}>
+            <AreaSmoothedChart/>
+          </View>
+        </ScrollView>
+      )
+    }*/
+}
 export class DashboardMenu extends React.Component {
   /*static navigationOptions = {
     title: 'Dashboards'.toUpperCase()
@@ -218,7 +295,7 @@ export class DashboardMenu extends React.Component {
   */
 
     static navigationOptions = {
-      title: 'Dashboard'.toUpperCase()
+      title: 'Customer Dashboard'.toUpperCase()
     };
 
     constructor(props) {
@@ -226,19 +303,19 @@ export class DashboardMenu extends React.Component {
       this.data = {
         statItems: [
           {
-            name: 'Stars',
-            value: '4,512',
+            name: 'Profile',
+            value: 'Profile',
             icon: 'github',
             background: RkTheme.current.colors.dashboard.stars
           },
           {
-            name: 'Tweets',
+            name: 'Upgrade',
             value: '2,256',
             icon: 'twitter',
             background: RkTheme.current.colors.dashboard.tweets
           },
           {
-            name: 'Likes',
+            name: 'Rent',
             value: '1,124',
             icon: 'facebook',
             background: RkTheme.current.colors.dashboard.likes

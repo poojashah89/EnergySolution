@@ -22,14 +22,15 @@ import {
 } from '../../components/';
 
 
-export class Dashboard extends React.Component {
+export class AdminDashboard extends React.Component {
 
   static navigationOptions = {
-    title: 'Customer Dashboard'.toUpperCase()
+    title: 'Admin Dashboard'.toUpperCase()
   };
 
   constructor(props) {
     super(props);
+    console.log("admin dashboard props:"+JSON.stringify(props));
     this.data = {
       statItems: [
         {
@@ -56,7 +57,7 @@ export class Dashboard extends React.Component {
 
   renderStatItem(item) {
     return (
-      <View style={[styles.statItemContainer, {backgroundColor: RkTheme.current.colors.control.background}]} key={item.name}>
+      <View style={[styles.statItemContainer, {backgroundColor: RkTheme.current.colors.control.background }]} key={item.name}>
         <View>
           <RkText rkType='header6' style={styles.statItemValue}>{item.value}</RkText>
           <RkText rkType='secondary7' style={styles.statItemName}>{item.name}</RkText>

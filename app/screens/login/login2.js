@@ -55,22 +55,24 @@ export class LoginV2 extends React.Component {
         obj= response._bodyInit;
         var res = JSON.parse(obj);
         if(res.success==1){
-          if(res.obj.type == "Admin")
+          if(res.obj.type == "Admin"){
             //redirect to the dashboard page
             StatusBar.setHidden(false, 'slide');
             let toHome = NavigationActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'AdminDashboard'})]
-          }
-          if(res.obj.type == "Customer")
+          });
+          this.props.navigation.dispatch(toHome)
+        }
+          if(res.obj.type == "Customer"){
             //redirect to the dashboard page
             StatusBar.setHidden(false, 'slide');
             let toHome = NavigationActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
-          }
         });
         this.props.navigation.dispatch(toHome)
+      }
       }
     }).catch(error => {
       console.error(error);

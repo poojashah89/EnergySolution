@@ -6,13 +6,30 @@ import {NavBar} from '../../components/index';
 import transition from './transitions';
 import {
   MainRoutes,
+  AdminRoutes,
   MenuRoutes
 } from './routes';
 
 let main = {};
 let flatRoutes = {};
 (MenuRoutes).map(function (route, index) {
+console.log('inside menu routes:line 16');
+  let wrapToRoute = (route) => {
+    return {
+      screen: withRkTheme(route.screen),
+      title: route.title
+    }
+  };
 
+  flatRoutes[route.id] = wrapToRoute(route);
+  main[route.id] = wrapToRoute(route);
+  for (let child of route.children) {
+    flatRoutes[child.id] = wrapToRoute(child);
+  }
+});
+(AdminRoutes).map(function (route, index) {
+
+console.log('inside admin routes:line 32');
   let wrapToRoute = (route) => {
     return {
       screen: withRkTheme(route.screen),
@@ -56,7 +73,7 @@ export const NavigationRoutes = _.find(MainRoutes, {id: 'NavigationMenu'}).child
 export const ArticleRoutes = _.find(MainRoutes, {id: 'ArticlesMenu'}).children;
 //export const MessagingRoutes = _.find(MainRoutes, {id: 'MessagingMenu'}).children;
 export const DashboardRoutes = _.find(MainRoutes, {id: 'DashboardsMenu'}).children;
-export const AdminDashboardRoutes = _.find(MainRoutes, {id: 'AdminDashboardMenu'}).children;
+//export const AdminDashboardRoutes = _.find(AdminRoutes, {id: 'AdminDashboardMenu'}).children;
 export const WalkthroughRoutes = _.find(MainRoutes, {id: 'WalkthroughMenu'}).children;
 export const EcommerceRoutes = _.find(MainRoutes, {id: 'EcommerceMenu'}).children;
 export const OtherRoutes = _.find(MainRoutes, {id: 'OtherMenu'}).children;

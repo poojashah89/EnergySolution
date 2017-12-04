@@ -24,6 +24,7 @@ export class SignUp extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log("inside sign up");
     //schema for post request
     this.state = {
       name: '',

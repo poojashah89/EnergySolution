@@ -30,25 +30,26 @@ export class AdminDashboard extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log("admin dashboard props:"+JSON.stringify(props));
     this.data = {
       statItems: [
         {
           name: 'Stars',
           value: '4,512',
-          //icon: 'github',
-          //background: RkTheme.current.colors.dashboard.stars
+          icon: 'github',
+          background: RkTheme.current.colors.dashboard.stars
         },
         {
           name: 'Tweets',
           value: '2,256',
-          //icon: 'twitter',
-          //background: RkTheme.current.colors.dashboard.tweets
+          icon: 'twitter',
+          background: RkTheme.current.colors.dashboard.tweets
         },
         {
           name: 'Likes',
           value: '1,124',
-          //icon: 'facebook',
-          //background: RkTheme.current.colors.dashboard.likes
+          icon: 'facebook',
+          background: RkTheme.current.colors.dashboard.likes
         },
       ]
     };
@@ -56,12 +57,12 @@ export class AdminDashboard extends React.Component {
 
   renderStatItem(item) {
     return (
-      <View style={[styles.statItemContainer, {backgroundColor: }]} key={item.name}>
+      <View style={[styles.statItemContainer, {backgroundColor: RkTheme.current.colors.control.background }]} key={item.name}>
         <View>
           <RkText rkType='header6' style={styles.statItemValue}>{item.value}</RkText>
           <RkText rkType='secondary7' style={styles.statItemName}>{item.name}</RkText>
         </View>
-        //<RkText rkType='awesome hero' style={styles.statItemIcon}>{FontAwesome[item.icon]}</RkText>
+        <RkText rkType='awesome hero' style={styles.statItemIcon}>{FontAwesome[item.icon]}</RkText>
       </View>
     )
   }

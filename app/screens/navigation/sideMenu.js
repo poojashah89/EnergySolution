@@ -20,6 +20,7 @@ export class SideMenu extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log("props:"+JSON.stringify(props));
     this._navigateAction = this._navigate.bind(this);
   }
 

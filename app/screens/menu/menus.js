@@ -124,9 +124,7 @@ export class ArticleMenu extends React.Component {
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
-            <RkButton rkType='outline small'>
-              uninstalled
-            </RkButton>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id})}>Uninstalled</RkButton>
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>

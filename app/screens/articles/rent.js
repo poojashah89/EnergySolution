@@ -38,33 +38,33 @@ export class RentService extends React.Component {
           <Image rkCardImg source={this.data.photo}/>
           <View rkCardHeader>
             <View>
-              <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
-              <RkText rkType='primary3 bigLine'>{this.data.text}</RkText>
+              <RkText style={styles.title} rkType='header6'>{this.data.header}</RkText>
+              <RkText rkType='header6'>{this.data.text}</RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Square Feet                     24.56    </RkText>
+              <RkText rkType='header4'>Square Feet                     24.56    </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Duration                          1 year    </RkText>
+              <RkText rkType='header4'>Duration                          1 year    </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Warranty                            Yes    </RkText>
+              <RkText rkType='header4'>Warranty                            Yes    </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Price                             1000 $    </RkText>
+              <RkText rkType='header4'>Price                             1000 $    </RkText>
             </View>
           </View>
-          <RkButton rkType='accent'>
-             Add to Cart
-          </RkButton>
+          <GradientButton style={styles.save} rkType='large' text='Add to Cart' onPress={() => {
+            this.props.navigation.navigate('LeaseSuccess')
+          }}/>
 
           </RkCard>
       </ScrollView>

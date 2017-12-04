@@ -36,12 +36,21 @@ const articles = [{
   'comments': []
 },{
   'id': 11,
-  'photo': require('../img/normalEnergy.png'),
+  'photo': require('../img/HVAC-Icon-Service-Page.png'),
   'type': 'fact',
   'time': -52365,
   'header': 'Cold Water',
   'status': 'uninstalled',
   'text': 'This is normal ebergy service.',
+  'comments': []
+},{
+  'id': 12,
+  'photo': require('../img/icon-IoT.png'),
+  'type': 'fact',
+  'time': -8373,
+  'header': 'IoT',
+  'status': 'uninstalled',
+  'text': 'This is the the IoT Energy Service.',
   'comments': []
 },
 ];

@@ -129,7 +129,19 @@ export const MainRoutes = [
         title: 'Schedule View',
         screen: Screens.ScheduleService,
         children: []
-      }
+      },
+      {
+      id: 'ScheduleSuccess',
+      title: 'Schedule confirmation',
+      screen: Screens.ScheduleSuccess,
+      children: []
+    },
+    {
+    id: 'LeaseSuccess',
+    title: 'Lease Confirmation',
+    screen: Screens.LeaseSuccess,
+    children: []
+  }
     ]
   },
   {

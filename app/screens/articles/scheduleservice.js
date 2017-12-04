@@ -38,43 +38,43 @@ export class ScheduleService extends React.Component {
           <Image rkCardImg source={this.data.photo}/>
           <View rkCardHeader>
             <View>
-              <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
-              <RkText style={styles.title} rkType='header4'>Please Enter Details to Schedule energy Service Installation</RkText>
+              <RkText style={styles.title} rkType='header6'>{this.data.header}</RkText>
+              <RkText style={styles.title} rkType='header6'>Please Enter Details to Schedule energy Service Installation</RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Name:                        sneha Kasetty  </RkText>
+              <RkText rkType='header4'>Name:                        sneha Kasetty  </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Address:                       San Jose CA  </RkText>
+              <RkText rkType='header4'>Address:                       San Jose CA  </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Zip Code:                        95128  </RkText>
+              <RkText rkType='header4'>Zip Code:                        95128  </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Phone:                        XXXXXXXXXXX  </RkText>
+              <RkText rkType='header4'>Phone:                        XXXXXXXXXXX  </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Enter Date:                        11/21/2017  </RkText>
+              <RkText rkType='header4'>Enter Date:                        11/21/2017  </RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='secondary2 hintColor'>Enter Time:                        04:21  </RkText>
+              <RkText rkType='header4'>Enter Time:                        04:21  </RkText>
             </View>
           </View>
-          <RkButton rkType='accent'>
-             Schedule
-          </RkButton>
+          <GradientButton style={styles.save} rkType='large' text='Schedule' onPress={() => {
+            this.props.navigation.navigate('ScheduleSuccess')
+          }}/>
         </RkCard>
       </ScrollView>
     )

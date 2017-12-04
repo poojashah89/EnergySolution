@@ -5,4 +5,6 @@ export * from './articles4';
 export * from './blogposts';
 export * from './article';
 export * from './rent';
-export * from './scheduleservice'
+export * from './scheduleservice';
+export * from './schedulesuccess';
+export * from './leasesuccess';

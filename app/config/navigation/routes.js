@@ -1,5 +1,6 @@
 import {FontIcons} from '../../assets/icons';
 import * as Screens from '../../screens/index';
+import * as MyCart from '../../screens/index';
 import _ from 'lodash';
 
 export const MainRoutes = [
@@ -53,39 +54,7 @@ export const MainRoutes = [
         children: []
       },
     ]
-  }  {
-      id: 'NavigationMenu',
-      icon: FontIcons.navigation,
-      title: 'Home',
-      screen: Screens.NavigationMenu,
-      children: [
-        {
-          id: 'GridV1',
-          title: 'Grid Menu V1',
-          screen: Screens.GridV1,
-          children: []
-        },
-        {
-          id: 'GridV2',
-          title: 'Grid Menu V2',
-          screen: Screens.GridV2,
-          children: []
-        },
-        {
-          id: 'List',
-          title: 'List Menu',
-          screen: Screens.ListMenu,
-          children: []
-        },
-        {
-          id: 'Side',
-          title: 'Side Menu',
-          action: 'DrawerOpen',
-          screen: Screens.SideMenu,
-          children: []
-        }
-      ]
-    },*/
+  } */
   {
     id: 'DashboardsMenu',
     title: 'Dashboard',
@@ -141,7 +110,41 @@ export const MainRoutes = [
         children: []
       }
     ]
-  },{
+  },
+  {
+      id: 'NavigationMenu',
+      icon: FontIcons.navigation,
+      title: 'Cart',
+      screen: Screens.NavigationMenu,
+      children: [
+        {
+          id: 'GridV1',
+          title: 'Grid Menu V1',
+          screen: Screens.GridV1,
+          children: []
+        },
+        {
+          id: 'GridV2',
+          title: 'Grid Menu V2',
+          screen: Screens.GridV2,
+          children: []
+        },
+        {
+        id: 'AddCart',
+        title: 'My Cart',
+        screen: MyCart.Cart,
+        children: []
+      },
+        {
+          id: 'Side',
+          title: 'Side Menu',
+          action: 'DrawerOpen',
+          screen: Screens.SideMenu,
+          children: []
+        }
+      ]
+    },
+  {
     id: 'EcommerceMenu',
     title: 'Payment',
     icon: FontIcons.card,

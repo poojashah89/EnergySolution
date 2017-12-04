@@ -194,6 +194,12 @@ export const MainRoutes = [
           children: []
         }
       ]
+    },{
+      id: 'Upgrade',
+      title: 'Upgrade',
+      icon: FontIcons.theme,
+      screen: Screens.Upgrade,
+      children: []
     },
   {
     id: 'EcommerceMenu',

@@ -17,6 +17,7 @@ import {
 import {
   RkCard,
   RkText,
+  RkButton,
   RkStyleSheet,
   RkTheme
 } from 'react-native-ui-kitten';
@@ -69,6 +70,7 @@ export class NavigationMenu extends React.Component {
   }
 }
 
+
 export class SocialMenu extends React.Component {
   static navigationOptions = {
     title: 'Social'.toUpperCase()
@@ -79,6 +81,8 @@ export class SocialMenu extends React.Component {
     )
   }
 }
+
+// This is the current energy service
 
 export class ArticleMenu extends React.Component {
   /*static navigationOptions = {
@@ -93,7 +97,7 @@ export class ArticleMenu extends React.Component {
   */
 
   static navigationOptions = {
-    title: 'Energy Solution'.toUpperCase()
+    title: 'Current Energy Solution'.toUpperCase()
   };
 
   constructor(props) {
@@ -111,14 +115,17 @@ export class ArticleMenu extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
+        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
         <RkCard rkType='horizontal' style={styles.card}>
           <Image rkCardImg source={info.item.photo}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
-            <RkText rkType='secondary6 hintColor'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
-            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
+            <RkText rkType='secondary6 hintColor'></RkText>
+            <RkButton rkType='outline small'>
+              uninstalled
+            </RkButton>
+            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>
             <SocialBar rkType='space' showLabel={true}/>
@@ -137,6 +144,52 @@ export class ArticleMenu extends React.Component {
           keyExtractor={this._keyExtractor}
           style={styles.container}/>
       </View>
+    )
+  }
+}
+
+export class RentServiceMenu extends React.Component {
+  static navigationOptions = {
+    title: 'Rent Service Menu'.toUpperCase()
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.data = data.getArticles('fact');
+    this.renderItem = this._renderItem.bind(this);
+  }
+
+  _keyExtractor(post, index) {
+    return post.id;
+  }
+
+  _renderItem(info) {
+    return (
+      <TouchableOpacity
+        delayPressIn={70}
+        activeOpacity={0.8}
+        onPress={() => this.props.navigation.navigate('RentService', {id: info.item.id})}>
+        <RkCard rkType='backImg'>
+          <Image rkCardImg source={info.item.photo}/>
+          <View rkCardImgOverlay rkCardContent style={styles.overlay}>
+            <RkText rkType='header6'>{info.item.header}</RkText>
+
+          </View>
+        </RkCard>
+      </TouchableOpacity>
+    )
+  }
+
+  render() {
+    let info = {};
+    info.item = this.data[0];
+    return (
+      <FlatList data={this.data}
+                renderItem={this.renderItem}
+                keyExtractor={this._keyExtractor}
+                style={styles.root}/>
+
     )
   }
 }

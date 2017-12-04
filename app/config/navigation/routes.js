@@ -104,12 +104,24 @@ export const MainRoutes = [
         children: []
       },
       {
-        id: 'Article',
-        title: 'Article View',
-        screen: Screens.Article,
+        id: 'ScheduleService',
+        title: 'Schedule View',
+        screen: Screens.ScheduleService,
         children: []
       }
     ]
+  },
+  {
+    id: 'RentServiceMenu',
+    title: 'Rent',
+    icon: FontIcons.navigation,
+    screen: Screens.RentServiceMenu,
+    children: [{
+      id: 'RentService',
+      title: 'Rent Energy Service',
+      screen: Screens.RentService,
+      children: []
+    },]
   },
   {
       id: 'NavigationMenu',

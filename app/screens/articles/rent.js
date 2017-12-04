@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {
   RkCard,
+  RkButton,
   RkText,
   RkStyleSheet
 } from 'react-native-ui-kitten';
@@ -16,9 +17,9 @@ import {SocialBar} from '../../components';
 let moment = require('moment');
 
 
-export class Article extends React.Component {
+export class RentService extends React.Component {
   static navigationOptions = {
-    title: 'Schedule Appointment'.toUpperCase()
+    title: 'Rent Service View'.toUpperCase()
   };
 
   constructor(props) {
@@ -36,20 +37,32 @@ export class Article extends React.Component {
           <View rkCardHeader>
             <View>
               <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
-              <RkText rkType='secondary2 hintColor'></RkText>
-            </View>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: this.data.id})}>
-              <Avatar rkType='circle' img={this.data.user.phot}/>
-            </TouchableOpacity>
-          </View>
-          <View rkCardContent>
-            <View>
               <RkText rkType='primary3 bigLine'>{this.data.text}</RkText>
             </View>
           </View>
-          <View rkCardFooter>
-            <SocialBar/>
+          <View rkCardContent>
+            <View>
+              <RkText rkType='secondary2 hintColor'>Square Feet                     24.56    </RkText>
+            </View>
           </View>
+          <View rkCardContent>
+            <View>
+              <RkText rkType='secondary2 hintColor'>Duration                          1 year    </RkText>
+            </View>
+          </View>
+          <View rkCardContent>
+            <View>
+              <RkText rkType='secondary2 hintColor'>Warranty                            Yes    </RkText>
+            </View>
+          </View>
+          <View rkCardContent>
+            <View>
+              <RkText rkType='secondary2 hintColor'>Price                             1000 $    </RkText>
+            </View>
+          </View>
+          <RkButton rkType='accent'>
+             Add to Cart
+          </RkButton>
         </RkCard>
       </ScrollView>
     )

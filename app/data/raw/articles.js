@@ -4,6 +4,7 @@ const articles = [{
   'type': 'fact',
   'time': -5665,
   'header': 'HVAC',
+  'status': 'int',
   'text': 'HVAC service description .',
   'comments': []
 }, {
@@ -12,6 +13,7 @@ const articles = [{
   'type': 'fact',
   'time': -8373,
   'header': 'IoT',
+  'status': 'uninstalled',
   'text': 'This is the the IoT Energy Service.',
   'comments': []
 }, {
@@ -20,6 +22,7 @@ const articles = [{
   'type': 'fact',
   'time': -565,
   'header': 'Light Energu Service',
+  'status': 'uninstalled',
   'text': 'This is the Light Energy service.',
   'comments': []
 }, {
@@ -28,6 +31,16 @@ const articles = [{
   'type': 'fact',
   'time': -52365,
   'header': 'Cold Water',
+  'status': 'uninstalled',
+  'text': 'This is normal ebergy service.',
+  'comments': []
+},{
+  'id': 11,
+  'photo': require('../img/normalEnergy.png'),
+  'type': 'fact',
+  'time': -52365,
+  'header': 'Cold Water',
+  'status': 'uninstalled',
   'text': 'This is normal ebergy service.',
   'comments': []
 },

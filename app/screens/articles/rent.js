@@ -8,6 +8,7 @@ import {
 import {
   RkCard,
   RkButton,
+  RkTextInput,
   RkText,
   RkStyleSheet
 } from 'react-native-ui-kitten';
@@ -38,28 +39,32 @@ export class RentService extends React.Component {
           <Image rkCardImg source={this.data.photo}/>
           <View rkCardHeader>
             <View>
-              <RkText style={styles.title} rkType='header6'>{this.data.header}</RkText>
-              <RkText rkType='header6'>{this.data.text}</RkText>
+              <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
+              <RkText rkType='header4'>{this.data.text}</RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Square Feet                     24.56    </RkText>
+              <RkText >Square Feet : </RkText>
+              <RkTextInput rkType='rounded' placeholder='24.56'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Duration                          1 year    </RkText>
+              <RkText > Duration : </RkText>
+              <RkTextInput rkType='rounded' placeholder='1 year'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Warranty                            Yes    </RkText>
+              <RkText > Warranty : </RkText>
+              <RkTextInput rkType='rounded' placeholder='Yes'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Price                             1000 $    </RkText>
+              <RkText > Price : </RkText>
+              <RkTextInput rkType='rounded' placeholder='1000 $'/>
             </View>
           </View>
           <GradientButton style={styles.save} rkType='large' text='Add to Cart' onPress={() => {

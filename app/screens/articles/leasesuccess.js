@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {
   RkButton,
+  RkCard,
   RkText,
   RkStyleSheet,
   RkTheme
@@ -16,6 +17,7 @@ import {
   RkSwitch,
   FindFriends
 } from '../../components';
+import {Cart} from '../other/cart';
 import {FontAwesome} from '../../assets/icons';
 
 export class LeaseSuccess extends React.Component {
@@ -43,17 +45,21 @@ export class LeaseSuccess extends React.Component {
     };
     return (
       <ScrollView style={styles.container}>
+      <RkCard rkType='article'>
         <View style={styles.section}>
 
-            <RkText rkType='h1' style={{marginLeft: 50}} >SUCCESSFULLY ADDED TO CART</RkText>
+            <RkText rkType='h1' style={{marginLeft: 40}} >SUCCESSFULLY ADDED TO CART</RkText>
             <RkText></RkText>
-              <RkText rkType='header6' style={{marginLeft: 90}}>Your Energy Service has been successfully added to Cart </RkText>
+              <RkText rkType='header6' style={{marginLeft: 80}}>Your Energy Service has been successfully added to Cart </RkText>
               <RkText></RkText>
-            <RkText rkType='header6' style={{marginLeft: 100}}>Please find your items in the cart .</RkText>
+            <RkText rkType='header6' style={{marginLeft: 80}}>Please find your items in the cart .</RkText>
             <RkText></RkText>
-              <RkText rkType='h3' style={{marginLeft: 120}}>Checkout and make payment </RkText>
+              <RkText rkType='h3' style={{marginLeft: 40}}>CHECKOUT AND MAKE PAYMENT </RkText>
+            <RkText></RkText>
+              <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('Cart')}>Go To Cart</RkButton>
         </View>
 
+       </RkCard>
       </ScrollView>
     )
   }

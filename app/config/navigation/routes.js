@@ -175,7 +175,7 @@ export const MainRoutes = [
           children: []
         },
         {
-        id: 'AddCart',
+        id: 'Cart',
         title: 'My Cart',
         screen: MyCart.Cart,
         children: []

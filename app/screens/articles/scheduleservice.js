@@ -8,6 +8,7 @@ import {
 import {
   RkCard,
   RkButton,
+  RkTextInput,
   RkText,
   RkStyleSheet
 } from 'react-native-ui-kitten';
@@ -38,38 +39,46 @@ export class ScheduleService extends React.Component {
           <Image rkCardImg source={this.data.photo}/>
           <View rkCardHeader>
             <View>
-              <RkText style={styles.title} rkType='header6'>{this.data.header}</RkText>
-              <RkText style={styles.title} rkType='header6'>Please Enter Details to Schedule energy Service Installation</RkText>
+              <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>
+              <RkText style={styles.title} rkType='header4'>Please Enter Details to Schedule energy Service Installation</RkText>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Name:                        sneha Kasetty  </RkText>
+
+            <RkText >Name : </RkText>
+            <RkTextInput rkType='rounded' placeholder='Sneha Kasetty'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Address:                       San Jose CA  </RkText>
+            <RkText >Adress : </RkText>
+            <RkTextInput rkType='rounded' placeholder='San Jose'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Zip Code:                        95128  </RkText>
+            <RkText >Zip Code : </RkText>
+            <RkTextInput rkType='rounded' placeholder='95128'/>
+
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Phone:                        XXXXXXXXXXX  </RkText>
+            <RkText >Phone : </RkText>
+            <RkTextInput rkType='rounded' placeholder='xxx-xxx-xxxx'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Enter Date:                        11/21/2017  </RkText>
+            <RkText >Date : </RkText>
+            <RkTextInput rkType='rounded' placeholder='12/01/2017'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText rkType='header4'>Enter Time:                        04:21  </RkText>
+            <RkText >Time : </RkText>
+            <RkTextInput rkType='rounded' placeholder='4:21'/>
             </View>
           </View>
           <GradientButton style={styles.save} rkType='large' text='Schedule' onPress={() => {

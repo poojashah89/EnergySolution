@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {
   RkText,
+  RkButton,
   RkCard, RkStyleSheet
 } from 'react-native-ui-kitten';
 import {SocialBar} from '../../components';
@@ -33,14 +34,15 @@ export class Articles4 extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('Article', {id: info.item.id})}>
-      	<RkCard rkType='horizontal' style={styles.card}>
-        	<Image rkCardImg source={info.item.photo}/>
+        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
+        <RkCard rkType='horizontal' style={styles.card}>
+          <Image rkCardImg source={info.item.photo}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
-            <RkText rkType='secondary6 hintColor'>{`${info.item.user.firstName} ${info.item.user.lastName}`}</RkText>
-            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'>{info.item.text}</RkText>
+            <RkText rkType='secondary6 hintColor'></RkText>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id})}>Uninstalled</RkButton>
+            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>
             <SocialBar rkType='space' showLabel={true}/>
@@ -49,6 +51,7 @@ export class Articles4 extends React.Component {
       </TouchableOpacity>
     )
   }
+
 
   render() {
     return (

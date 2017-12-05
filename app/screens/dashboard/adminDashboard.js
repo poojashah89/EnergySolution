@@ -16,6 +16,7 @@ import {
 } from 'react-native-ui-kitten';
 
 import {FontAwesome} from '../../assets/icons';
+import {AdminEnergyServiceMenu} from '../articles/adminenergyservicemenu'
 import {Articles4} from '../articles/articles4';
 import {Upgrade} from '../theme/upgrade';
 import {Cart} from '../other/cart';
@@ -90,11 +91,11 @@ export class AdminDashboard extends React.Component {
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}
             onPress={() => {
-              this.props.navigation.navigate('Articles4')
+              this.props.navigation.navigate('AdminEnergyServiceMenu')
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
             </RkText>
-            <RkText rkType='h3'>View Services</RkText>
+            <RkText rkType='h3'>View Energy Service Vendor</RkText>
           </RkButton>
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}

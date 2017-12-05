@@ -97,7 +97,7 @@ export class Dashboard extends React.Component {
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
             </RkText>
-            <RkText rkType='h3'>View Services</RkText>
+            <RkText rkType='h3'>Purchased Energy Service</RkText>
           </RkButton>
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}
@@ -111,11 +111,11 @@ export class Dashboard extends React.Component {
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}
             onPress={() => {
-              this.props.navigation.navigate('Cart')
+              this.props.navigation.navigate('RentServiceMenu')
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.dashboard}
             </RkText>
-            <RkText rkType='h3'>Service Usage</RkText>
+            <RkText rkType='h3'>Rent Energy Service</RkText>
           </RkButton>
           <View style={chartBlockStyles}>
               <DoughnutChart/>

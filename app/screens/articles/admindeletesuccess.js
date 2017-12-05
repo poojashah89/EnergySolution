@@ -55,7 +55,7 @@ export class AdminDeleteSuccess extends React.Component {
               <RkText rkType='h3' style={{marginLeft: 90}}>54673837384349</RkText>
               <View>
               </View>
-              <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('Dashboard')}>Go To Dashboard</RkButton>
+              <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('AdminDashboard')}>Go To Dashboard</RkButton>
 
 
         </View>

@@ -8,7 +8,8 @@ import {
   MainRoutes,
   AdminRoutes,
   VendorRoutes,
-  MenuRoutes
+  MenuRoutes,
+  SideMenuRoutes
 } from './routes';
 
 let main = {};
@@ -62,6 +63,22 @@ console.log('inside vendor routes:line 49');
   }
 });
 
+(SideMenuRoutes).map(function (route, index) {
+
+console.log('inside SideMenuRoutes routes:line 49');
+  let wrapToRoute = (route) => {
+    return {
+      screen: withRkTheme(route.screen),
+      title: route.title
+    }
+  };
+
+  flatRoutes[route.id] = wrapToRoute(route);
+  main[route.id] = wrapToRoute(route);
+  for (let child of route.children) {
+    flatRoutes[child.id] = wrapToRoute(child);
+  }
+});
 let ThemedNavigationBar = withRkTheme(NavBar);
 
 const DrawerRoutes = Object.keys(main).reduce((routes, name) => {

@@ -13,7 +13,7 @@ import {
   RkText,
   RkTheme
 } from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/navigation/routes';
+import {SideMenuRoutes} from '../../config/navigation/routes';
 import {FontAwesome} from '../../assets/icons';
 
 export class SideMenu extends React.Component {
@@ -40,7 +40,7 @@ export class SideMenu extends React.Component {
   }
 
   render() {
-    let menu = MainRoutes.map((route, index) => {
+    let menu = SideMenuRoutes.map((route, index) => {
       return (
         <TouchableHighlight
           style={styles.container}

@@ -369,7 +369,19 @@ export const MainRoutes = [
     ]
   },*/
 
+
   {
+      id: 'WalkthroughMenu',
+      title: 'About App',
+      icon: FontIcons.mobile,
+      screen: Screens.WalkthroughMenu,
+      children: [{
+        id: 'Walkthrough',
+        title: 'Walkthrough',
+        screen: Screens.WalkthroughScreen,
+        children: []
+      }]
+  },{
     id: 'OtherMenu',
     title: 'Settings',
     icon: FontIcons.other,
@@ -382,25 +394,6 @@ export const MainRoutes = [
         children: []
       }
     ]
-  },
-  {
-    id: 'Themes',
-    title: 'Themes',
-    icon: FontIcons.theme,
-    screen: Screens.Themes,
-    children: []
-  },
-  {
-      id: 'WalkthroughMenu',
-      title: 'About App',
-      icon: FontIcons.mobile,
-      screen: Screens.WalkthroughMenu,
-      children: [{
-        id: 'Walkthrough',
-        title: 'Walkthrough',
-        screen: Screens.WalkthroughScreen,
-        children: []
-      }]
   },
   {
       id: 'LoginMenu',
@@ -429,6 +422,44 @@ export const MainRoutes = [
       ]
     },
 ];
+
+
+export const SideMenuRoutes = [
+  {
+      id: 'WalkthroughMenu',
+      title: 'About App',
+      icon: FontIcons.mobile,
+      screen: Screens.WalkthroughMenu,
+      children: [{
+        id: 'Walkthrough',
+        title: 'Walkthrough',
+        screen: Screens.WalkthroughScreen,
+        children: []
+      }]
+  },
+    {
+      id: 'LoginMenu',
+      title: 'Sign Out',
+      icon: FontIcons.login,
+      screen: Screens.LoginMenu,
+      children: []
+    },
+    {
+      id: 'Settings',
+      title: 'Settings',
+      screen: Screens.Settings,
+      icon: FontIcons.other,
+      children: []
+    },
+    {
+      id: 'Themes',
+      title: 'Themes',
+      icon: FontIcons.theme,
+      screen: Screens.Themes,
+      children: []
+    },
+
+  ];
 
 let menuRoutes = _.cloneDeep(MainRoutes);
 menuRoutes.unshift({

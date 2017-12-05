@@ -46,13 +46,13 @@ export class AdminDeleteSuccess extends React.Component {
       <ScrollView style={styles.container}>
         <View style={styles.section}>
 
-            <RkText rkType='h1' style={{marginLeft: 50}} > Delete Success</RkText>
+            <RkText rkType='h1' style={{marginLeft: 50}} > VENDOR DELETED SUCCESSFULLY </RkText>
             <RkText></RkText>
-              <RkText rkType='header6' style={{marginLeft: 90}}>Your appointment has been Successfully Scheduled </RkText>
+              <RkText rkType='header6' style={{marginLeft: 90}}> </RkText>
               <RkText></RkText>
-            <RkText rkType='header6' style={{marginLeft: 90}}>Please find your appointment confirmation number.</RkText>
+            <RkText rkType='header6' style={{marginLeft: 90}}> </RkText>
             <RkText></RkText>
-              <RkText rkType='h3' style={{marginLeft: 90}}>54673837384349</RkText>
+              <RkText rkType='h3' style={{marginLeft: 90}}> </RkText>
               <View>
               </View>
               <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('AdminDashboard')}>Go To Dashboard</RkButton>

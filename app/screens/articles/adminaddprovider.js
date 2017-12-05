@@ -1,6 +1,6 @@
-import React from 'react';
 
-import {CategoryMenu} from './categoryMenu';
+/*import React from 'react';
+
 import * as Routes from '../../config/navigation/routesBuilder';
 import {
   ScrollView,
@@ -8,6 +8,7 @@ import {
   Image,
   View,
   TouchableOpacity,
+  ListView,
   Dimensions,
   StatusBar,
   StyleSheet
@@ -54,59 +55,44 @@ const paddingValue = 8;
 
 import {NavigationActions} from 'react-navigation';
 
-
-export class RentServiceMenu extends React.Component {
+export class AdminAddVendorMenu extends React.Component {
   static navigationOptions = {
-    title: 'Rent Service Menu'.toUpperCase()
+    title: 'Add Energy Service Vendor'.toUpperCase()
   };
 
   constructor(props) {
     super(props);
-
-    this.data = data.getArticles('fact');
-    this.renderItem = this._renderItem.bind(this);
-  }
-
-  _keyExtractor(post, index) {
-    return post.id;
-  }
-
-  _renderItem(info) {
-    return (
-      <TouchableOpacity
-        delayPressIn={70}
-        activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('RentService', {id: info.item.id})}>
-        <RkCard rkType='backImg'>
-          <Image rkCardImg source={info.item.photo}/>
-          <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-            <RkText rkType='header4'>{info.item.header}</RkText>
-
-          </View>
-        </RkCard>
-      </TouchableOpacity>
-    )
   }
 
   render() {
-    let info = {};
-    info.item = this.data[0];
-    return (
-      <FlatList data={this.data}
-                renderItem={this.renderItem}
-                keyExtractor={this._keyExtractor}
-                style={styles.root}/>
 
+    return (
+
+      <View style={styles.screen}>
+
+        <View style={{alignItems: 'center'}}>
+
+          <RkText rkType='h1'>Enter Energy Service Vendor</RkText>
+        </View>
+        <View style={styles.content}>
+          <View>
+              <RkText >Energy Service Vendor Name : </RkText>
+            <RkTextInput rkType='rounded' placeholder='HVAC'/>
+              <RkText >Add Energy Service</RkText>
+            <RkTextInput rkType='rounded' placeholder='Solar'/>
+            <RkText > Add Amount </RkText>
+            <RkTextInput rkType='rounded' placeholder='1000$ '/>
+            </View>
+
+          <View>
+          <GradientButton style={styles.save} rkType='large' text='Add Vendor' onPress={() => {
+              this.props.navigation.navigate('AdminAddVendorSuccess')
+            }}/>
+
+          </View>
+
+        </View>
+      </View>
     )
   }
-}
-let styles = RkStyleSheet.create(theme => ({
-
-  RkText: {
-  color  : 'red'
-
-  },
-
-
-
-}));
+}*/

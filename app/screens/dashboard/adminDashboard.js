@@ -84,7 +84,7 @@ export class AdminDashboard extends React.Component {
             onPress={() => {
               this.props.navigation.navigate('ViewCustomers')
             }}>
-            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.theme}
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.profile}
             </RkText>
             <RkText rkType='h3' >View Customers</RkText>
           </RkButton>
@@ -93,27 +93,27 @@ export class AdminDashboard extends React.Component {
             onPress={() => {
               this.props.navigation.navigate('AdminEnergyServiceMenu')
             }}>
-            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.other}
             </RkText>
             <RkText rkType='h3'>View Energy Service Vendor</RkText>
           </RkButton>
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}
             onPress={() => {
-              this.props.navigation.navigate('Cart')
+              this.props.navigation.navigate('AdminEnergyServiceList')
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
             </RkText>
-            <RkText rkType='h3'>View Providers</RkText>
+            <RkText rkType='h3'>View Energy Service</RkText>
           </RkButton>
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}
             onPress={() => {
-              this.props.navigation.navigate('Cart')
+              this.props.navigation.navigate('AdminAddVendorMenu')
             }}>
-            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.profile}
             </RkText>
-            <RkText rkType='h3'>Add Provider</RkText>
+            <RkText rkType='h3'>Add Vendor</RkText>
           </RkButton>
 
           <View style={chartBlockStyles}>

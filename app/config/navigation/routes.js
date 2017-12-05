@@ -24,6 +24,27 @@ export const AdminRoutes = [
   }
 ];
 
+export const VendorRoutes = [
+  {
+    id: 'VendorDashboardsMenu',
+    title: 'Vendor Dashboard',
+    icon: FontIcons.dashboard,
+    screen: Screens.VendorDashboardMenu,
+    children: [{
+      id: 'VendorDashboard',
+      title: 'VendorDashboard',
+      screen: Screens.VendorDashboard,
+      children: []
+    }
+    /*{
+      id: 'GridV1',
+      title: 'Grid Menu V1',
+      screen: Screens.GridV1,
+      children: []
+    }*/]
+  }
+];
+
 export const MainRoutes = [
   /*,
   {

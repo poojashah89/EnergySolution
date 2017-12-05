@@ -20,7 +20,10 @@ import {Articles4} from '../articles/articles4';
 import {Upgrade} from '../theme/upgrade';
 import {Cart} from '../other/cart';
 import {
-  VendorChart
+  ProgressChart,
+  DoughnutChart,
+  AreaChart,
+  AreaSmoothedChart
 } from '../../components/';
 
 import {FontIcons} from '../../assets/icons';
@@ -85,7 +88,7 @@ export class VendorDashboard extends React.Component {
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.theme}
             </RkText>
-            <RkText rkType='h3'>View Appointments</RkText>
+            <RkText rkType='h3'>Upgrade VIP</RkText>
           </RkButton>
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}
@@ -94,11 +97,34 @@ export class VendorDashboard extends React.Component {
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
             </RkText>
-            <RkText rkType='h3'>View Details</RkText>
+            <RkText rkType='h3'>View Services</RkText>
           </RkButton>
 
+          <RkButton rkType='square shadow' style={{width: size, height: size}}
+            onPress={() => {
+              this.props.navigation.navigate('Cart')
+            }}>
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
+            </RkText>
+            <RkText rkType='h3'>Cart</RkText>
+          </RkButton>
+
+          <RkButton rkType='square shadow' style={{width: size, height: size}}
+            onPress={() => {
+              this.props.navigation.navigate('Cart')
+            }}>
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.dashboard}
+            </RkText>
+            <RkText rkType='h3'>Service Usage</RkText>
+          </RkButton>
           <View style={chartBlockStyles}>
-              <VendorChart/>
+              <DoughnutChart/>
+          </View>
+          <View style={chartBlockStyles}>
+              <AreaChart/>
+          </View>
+          <View style={chartBlockStyles}>
+              <AreaSmoothedChart/>
           </View>
         </ScrollView>
     )

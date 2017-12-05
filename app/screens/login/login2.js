@@ -56,7 +56,7 @@ export class LoginV2 extends React.Component {
         var res = JSON.parse(obj);
         if(res.success==1){
           if(res.obj.type == "Admin"){
-            //redirect to the dashboard page
+            //redirect to the admin dashboard page
             StatusBar.setHidden(false, 'slide');
             let toHome = NavigationActions.reset({
             index: 0,
@@ -65,13 +65,23 @@ export class LoginV2 extends React.Component {
           this.props.navigation.dispatch(toHome)
         }
           if(res.obj.type == "Customer"){
-            //redirect to the dashboard page
+            //redirect to the customer dashboard page
             StatusBar.setHidden(false, 'slide');
             let toHome = NavigationActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
         });
         this.props.navigation.dispatch(toHome)
+      }
+
+      if(res.obj.type == "Vendor"){
+        //redirect to the customer dashboard page
+        StatusBar.setHidden(false, 'slide');
+        let toHome = NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({routeName: 'VendorDashboard'})]
+      });
+      this.props.navigation.dispatch(toHome)
       }
       }
     }).catch(error => {

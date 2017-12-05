@@ -16,6 +16,7 @@ import {GradientButton} from '../../components/';
 import {RkTheme} from 'react-native-ui-kitten';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 import {NavigationActions} from 'react-navigation';
+import auth from '../../utils/authUtils';
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
@@ -55,6 +56,9 @@ export class LoginV2 extends React.Component {
         obj= response._bodyInit;
         var res = JSON.parse(obj);
         if(res.success==1){
+          //set the token in authUtils
+          auth.setToken(res.token);
+          
           if(res.obj.type == "Admin"){
             //redirect to the admin dashboard page
             StatusBar.setHidden(false, 'slide');

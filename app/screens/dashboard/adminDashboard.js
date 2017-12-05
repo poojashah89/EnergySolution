@@ -81,11 +81,11 @@ export class AdminDashboard extends React.Component {
         <ScrollView style={styles.root} contentContainerStyle={styles.rootContainer}>
           <RkButton rkType='square shadow' style={{width: size, height: size}}
             onPress={() => {
-              this.props.navigation.navigate('Upgrade')
+              this.props.navigation.navigate('ViewCustomers')
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.theme}
             </RkText>
-            <RkText rkType='h3'>View Customers</RkText>
+            <RkText rkType='h3' >View Customers</RkText>
           </RkButton>
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}

@@ -12,11 +12,13 @@ import {
   RkButton,
   RkStyleSheet,
   RkTheme,
+  RkCard
 } from 'react-native-ui-kitten';
 
 import {FontAwesome} from '../../assets/icons';
 import {Articles4} from '../articles/articles4';
 import {Upgrade} from '../theme/upgrade';
+import {Cart} from '../other/cart';
 import {
   ProgressChart,
   DoughnutChart,
@@ -79,34 +81,47 @@ export class Dashboard extends React.Component {
       let size = this._calculateItemSize();
       let chartBlockStyles = [styles.chartBlock, {backgroundColor: RkTheme.current.colors.control.background}];
       return (
-        <ScrollView style={styles.screen}>
-            <View>
-              <RkButton rkType='square shadow' style={{width: size, height: size}}
-                onPress={() => {
-                  this.props.navigation.navigate('Upgrade')
-                }}>
-                <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.profile}
-                </RkText>
-                <RkText rkType='h3'>Upgrade VIP</RkText>
-              </RkButton>
+        <ScrollView style={styles.root} contentContainerStyle={styles.rootContainer}>
+          <RkButton rkType='square shadow' style={{width: size, height: size}}
+            onPress={() => {
+              this.props.navigation.navigate('Upgrade')
+            }}>
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.theme}
+            </RkText>
+            <RkText rkType='h3'>Upgrade VIP</RkText>
+          </RkButton>
 
-            <RkButton rkType='square shadow' style={{width: size, height: size}}
-              onPress={() => {
-                this.props.navigation.navigate('Articles4')
-              }}>
-              <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
-              </RkText>
-              <RkText rkType='h3'>Rent Services</RkText>
-            </RkButton>
-          </View>
+          <RkButton rkType='square shadow' style={{width: size, height: size}}
+            onPress={() => {
+              this.props.navigation.navigate('Articles4')
+            }}>
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
+            </RkText>
+            <RkText rkType='h3'>View Services</RkText>
+          </RkButton>
+
+          <RkButton rkType='square shadow' style={{width: size, height: size}}
+            onPress={() => {
+              this.props.navigation.navigate('Cart')
+            }}>
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
+            </RkText>
+            <RkText rkType='h3'>Cart</RkText>
+          </RkButton>
+
+          <RkButton rkType='square shadow' style={{width: size, height: size}}
+            onPress={() => {
+              this.props.navigation.navigate('Cart')
+            }}>
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.dashboard}
+            </RkText>
+            <RkText rkType='h3'>Service Usage</RkText>
+          </RkButton>
           <View style={chartBlockStyles}>
               <DoughnutChart/>
           </View>
           <View style={chartBlockStyles}>
               <AreaChart/>
-          </View>
-          <View style={chartBlockStyles}>
-              <ProgressChart/>
           </View>
           <View style={chartBlockStyles}>
               <AreaSmoothedChart/>
@@ -117,7 +132,13 @@ export class Dashboard extends React.Component {
 }
 
 let styles = RkStyleSheet.create(theme => ({
-  screen: {
+  rootContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },root: {
+    backgroundColor: theme.colors.screen.scroll,
+    padding: paddingValue,
+  },screen: {
     backgroundColor: theme.colors.screen.scroll,
     paddingHorizontal: 15,
   },
@@ -159,5 +180,10 @@ let styles = RkStyleSheet.create(theme => ({
   },
   icon: {
     marginBottom: 16
+  },
+  text: {
+    flexDirection: 'row'
+  },wrapper: {
+    flex: 1,
   }
 }));

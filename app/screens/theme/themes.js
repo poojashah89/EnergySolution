@@ -62,7 +62,8 @@ let styles = RkStyleSheet.create(theme => ({
 
   },
   image: {
-    height: scaleVertical(160)
+    height: scaleVertical(180),//scaleVertical(160)
+    width: 180
   },
   container: {
     flex: 1,

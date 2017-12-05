@@ -304,12 +304,6 @@ export const MainRoutes = [
       screen: Screens.LoginMenu,
       children: [
         {
-          id: 'Login1',
-          title: 'Login V1',
-          screen: Screens.LoginV1,
-          children: []
-        },
-        {
           id: 'Login2',
           title: 'Login V2',
           screen: Screens.LoginV2,

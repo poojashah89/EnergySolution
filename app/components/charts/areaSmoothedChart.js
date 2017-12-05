@@ -67,7 +67,7 @@ export class AreaSmoothedChart extends RkComponent {
   render() {
     return (
       <View>
-        <RkText rkType='header4'>NEW FOLLOWERS</RkText>
+        <RkText rkType='header4'>Daily Service Usage</RkText>
         <VictoryChart padding={{top: 20, left: 40, right: 15, bottom: 40}} width={this.size - 60}>
           <VictoryAxis
             tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}
@@ -84,7 +84,7 @@ export class AreaSmoothedChart extends RkComponent {
           />
           <VictoryAxis
             dependentAxis
-            tickValues={['10k', '20k', '30k', '40k']}
+            tickValues={['10%', '20%', '30%', '40%', '50%','60%','70%','80%','90%','100%']}
             style={{
               axis: {stroke: "transparent"},
               grid: {stroke: RkTheme.current.colors.disabled, strokeWidth: 0.5},

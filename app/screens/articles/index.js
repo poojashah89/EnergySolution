@@ -8,3 +8,6 @@ export * from './rent';
 export * from './scheduleservice';
 export * from './schedulesuccess';
 export * from './leasesuccess';
+export * from './admindeletesuccess';
+export * from './admindeletevendor';
+export * from './adminaddvendorsuccess';

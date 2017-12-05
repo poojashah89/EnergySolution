@@ -19,7 +19,7 @@ import {
 } from '../../components';
 import {FontAwesome} from '../../assets/icons';
 
-export class ScheduleSuccess extends React.Component {
+export class AdminDeleteSuccess extends React.Component {
   static navigationOptions = {
     title: 'Schedule Confirmation'.toUpperCase()
   };
@@ -46,7 +46,7 @@ export class ScheduleSuccess extends React.Component {
       <ScrollView style={styles.container}>
         <View style={styles.section}>
 
-            <RkText rkType='h1' style={{marginLeft: 50}} >SCHEDULE SUCCESS</RkText>
+            <RkText rkType='h1' style={{marginLeft: 50}} > Delete Success</RkText>
             <RkText></RkText>
               <RkText rkType='header6' style={{marginLeft: 90}}>Your appointment has been Successfully Scheduled </RkText>
               <RkText></RkText>
@@ -55,7 +55,6 @@ export class ScheduleSuccess extends React.Component {
               <RkText rkType='h3' style={{marginLeft: 90}}>54673837384349</RkText>
               <View>
               </View>
-
               <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('Dashboard')}>Go To Dashboard</RkButton>
 
 

@@ -14,6 +14,18 @@ export const AdminRoutes = [
       title: 'AdminDashboard',
       screen: Screens.AdminDashboard,
       children: []
+    },
+    {
+      id: 'ViewCustomers',
+      title: 'ViewCustomers',
+      screen: Screens.ViewCustomers,
+      children: []
+    },
+    {
+      id: 'ViewAppointments',
+      title: 'ViewAppointments',
+      screen: Screens.ViewAppointments,
+      children: []
     }
     /*{
       id: 'GridV1',
@@ -165,6 +177,78 @@ export const MainRoutes = [
   }
     ]
   },
+/*    */
+{
+  id: 'AdminEnergyServiceMenu',
+  title: 'Admin Energy Service Vendors',
+  icon: FontIcons.article,
+  screen: Screens.AdminEnergyServiceMenu,
+  children: [
+    {
+      id: 'AdminDeleteVendor',
+      title: 'Admin Delete Vendor',
+      screen: Screens.AdminDeleteVendor,
+      children: []
+    },
+    {
+    id: 'AdminDeleteSuccess',
+    title: 'Schedule confirmation',
+    screen: Screens.AdminDeleteSuccess,
+    children: []
+  },
+  {
+  id: 'LeaseSuccess',
+  title: 'Lease Confirmation',
+  screen: Screens.LeaseSuccess,
+  children: []
+  }
+  ]
+},
+
+/*  */
+
+/*    */
+{
+  id: 'AdminAddVendorMenu',
+  title: 'Admin Energy Service Vendors',
+  icon: FontIcons.article,
+  screen: Screens.AdminAddVendorMenu,
+  children: [
+    {
+      id: 'AdminAddVendorSuccess',
+      title: 'Admin Add Vendor',
+      screen: Screens.AdminAddVendorSuccess,
+      children: []
+    },
+    {
+    id: 'AdminDeleteSuccess',
+    title: 'Schedule confirmation',
+    screen: Screens.AdminDeleteSuccess,
+    children: []
+  },
+  {
+  id: 'LeaseSuccess',
+  title: 'Lease Confirmation',
+  screen: Screens.LeaseSuccess,
+  children: []
+  }
+  ]
+},
+
+/*  */
+
+ {
+   id: 'AdminEnergyServiceList',
+   title: 'Admin Energy Service List',
+   icon: FontIcons.navigation,
+   screen: Screens.RentServiceMenu,
+   children: [{
+    id: 'AdminEnergyServiceList',
+    title: 'Rent Energy Service',
+    screen: Screens.AdminEnergyServiceList,
+    children: []
+   },]
+ },
   {
     id: 'RentServiceMenu',
     title: 'Rent',

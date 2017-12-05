@@ -18,7 +18,7 @@ import {
   SocialBar,
   GradientButton} from '../../components';
 let moment = require('moment');
-
+import auth from '../../utils/authUtils';
 
 export class RentService extends React.Component {
   static navigationOptions = {
@@ -30,7 +30,58 @@ export class RentService extends React.Component {
     let {params} = this.props.navigation.state;
     let id = params ? params.id : 1;
     this.data = data.getArticle(id);
+    this.state = {
+      token: '',
+      serviceid:'',
+      squarefeet: '',
+      duration: '',
+      warranty: '',
+      price: ''
+    }
   }
+
+  handleServiceId = (text) => {
+     this.setState({ serviceid: text })
+  }
+  handleSqFeet = (text) => {
+     this.setState({ squarefeet: text })
+  }
+  handleDuration = (text) => {
+     this.setState({ duration: text })
+  }
+  handleWarranty = (text) => {
+     this.setState({ warranty: text })
+  }
+  handlePrice = (text) => {
+     this.setState({ price: text })
+  }
+
+  rentService = (serviceid, squarefeet, duration, warranty, price) => {
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/rent', {
+         method: 'POST',
+         headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+         token: auth.getToken(),
+         serviceid: serviceid,
+         squarefeet: squarefeet,
+         duration: duration,
+         warranty: warranty,
+         price: price
+         })
+      }).then(response => {
+        var res = JSON.parse(JSON.stringify(response));
+        if(res.status==201){
+          //redirect to the rent page
+          this.props.navigation.navigate('LeaseSuccess');
+      }
+    }).catch(error => {
+      console.error(error);
+    });
+   }
+
 
   render() {
     return (
@@ -45,31 +96,38 @@ export class RentService extends React.Component {
           </View>
           <View rkCardContent>
             <View>
+              <RkText>Service Id : </RkText>
+              <RkTextInput rkType='rounded' placeholder='Id' onChangeText = {this.handleServiceId}/>
+            </View>
+          </View>
+          <View rkCardContent>
+            <View>
               <RkText >Square Feet : </RkText>
-              <RkTextInput rkType='rounded' placeholder='24.56'/>
+              <RkTextInput rkType='rounded' placeholder='Square Feet' onChangeText = {this.handleSqFeet}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
               <RkText > Duration : </RkText>
-              <RkTextInput rkType='rounded' placeholder='1 year'/>
+              <RkTextInput rkType='rounded' placeholder='Duration' onChangeText = {this.handleDuration}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
               <RkText > Warranty : </RkText>
-              <RkTextInput rkType='rounded' placeholder='Yes'/>
+              <RkTextInput rkType='rounded' placeholder='Warranty' onChangeText = {this.handleWarranty}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
               <RkText > Price : </RkText>
-              <RkTextInput rkType='rounded' placeholder='1000 $'/>
+              <RkTextInput rkType='rounded' placeholder='Price' onChangeText = {this.handlePrice}/>
             </View>
           </View>
-          <GradientButton style={styles.save} rkType='large' text='Add to Cart' onPress={() => {
-            this.props.navigation.navigate('LeaseSuccess')
-          }}/>
+          <GradientButton style={styles.save} rkType='large' text='Add to Cart' onPress={
+            //this.props.navigation.navigate('LeaseSuccess')
+            () => this.rentService(this.state.serviceid, this.state.squarefeet,this.state.duration,this.state.warranty,this.state.price)
+          }/>
 
           </RkCard>
       </ScrollView>

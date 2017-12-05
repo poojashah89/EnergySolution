@@ -8,6 +8,7 @@ import {
   Image,
   View,
   TouchableOpacity,
+  ListView,
   Dimensions,
   StatusBar,
   StyleSheet
@@ -115,9 +116,10 @@ export class ArticleMenu extends React.Component {
       text:'',
       comments:[]
    }*/
-   /*this.state = {
-     dataSource = []
-   }*/
+   this.state = {
+     //dataSource = []
+     isLoading: true
+   }
   }
 
   getServices = () => {
@@ -136,10 +138,11 @@ export class ArticleMenu extends React.Component {
         console.log("response1:"+ JSON.stringify(item));
         console.log("response obj"+item.id);
 
-        /*let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.setState({
+          isLoading: false,
           dataSource : ds.cloneWithRows(this.obj)
-        })*/
+        })
         //var res = JSON.parse(obj);
         //console.log("res:"+JSON.stringify(res));
 
@@ -154,6 +157,7 @@ export class ArticleMenu extends React.Component {
   }
 
   _renderItem(info) {
+    if (this.state.isLoading) {
     return (
       <TouchableOpacity
         delayPressIn={70}
@@ -175,21 +179,22 @@ export class ArticleMenu extends React.Component {
       </TouchableOpacity>
     )
   }
+  }
 
   render() {
     return (
       <View>
         <FlatList
-          data={[{
+          data=/*{[{
             'id': 7,
-            //'photo': require('../img/HVAC-Icon-Service-Page.png'),
+            'photo': require('../img/HVAC-Icon-Service-Page.png'),
             'type': 'fact',
             'time': -5665,
             'header': 'HVAC',
             'status': 'int',
             'text': 'HVAC service description .',
             'comments': []
-          }]}//{this.state.dataSource}
+          }]}*/{this.state.dataSource}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
           style={styles.container}/>

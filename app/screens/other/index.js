@@ -3,4 +3,5 @@ export * from './settings';
 export * from './cart';
 export * from './payments';
 export * from './paymentConfirmation';
-export * from './installment';
+export * from './payInstallment';
+export * from './paymenttype';

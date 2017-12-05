@@ -15,8 +15,9 @@ import {
 import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 import {Payments} from './payments';
+import {Installment} from './payInstallment';
 
-export class Installment extends React.Component {
+export class PaymentType extends React.Component {
   static navigationOptions = {
     title: 'PAYMENT TYPE'.toUpperCase()
   };
@@ -46,7 +47,7 @@ export class Installment extends React.Component {
               <RkText >If you choose to pay in Installments an additional 2% will be charged</RkText>
 
             <GradientButton style={styles.save} rkType='large' text='Pay in Installments' onPress={() => {
-              this.props.navigation.navigate('Payments')
+              this.props.navigation.navigate('Installment')
             }}/>
             <GradientButton style={styles.save} rkType='large' text='Full Payment' onPress={() => {
               this.props.navigation.navigate('Payments')

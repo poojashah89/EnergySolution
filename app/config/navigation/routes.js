@@ -14,6 +14,39 @@ export const AdminRoutes = [
       title: 'AdminDashboard',
       screen: Screens.AdminDashboard,
       children: []
+    },
+    {
+      id: 'ViewCustomers',
+      title: 'ViewCustomers',
+      screen: Screens.ViewCustomers,
+      children: []
+    },
+    {
+      id: 'ViewAppointments',
+      title: 'ViewAppointments',
+      screen: Screens.ViewAppointments,
+      children: []
+    }
+    /*{
+      id: 'GridV1',
+      title: 'Grid Menu V1',
+      screen: Screens.GridV1,
+      children: []
+    }*/]
+  }
+];
+
+export const VendorRoutes = [
+  {
+    id: 'VendorDashboardsMenu',
+    title: 'Vendor Dashboard',
+    icon: FontIcons.dashboard,
+    screen: Screens.VendorDashboardMenu,
+    children: [{
+      id: 'VendorDashboard',
+      title: 'VendorDashboard',
+      screen: Screens.VendorDashboard,
+      children: []
     }
     /*{
       id: 'GridV1',

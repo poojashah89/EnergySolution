@@ -98,10 +98,56 @@ export class ArticleMenu extends React.Component {
   };
 
   constructor(props) {
+    console.log("Inside Arcticlemenu constructor");
     super(props);
+    this.getServices();
     this.data = data.getArticles('fact');
+    console.log("Article data:"+this.data);
+    //this.obj = [];
     this.renderItem = this._renderItem.bind(this);
+    /*this.state = {
+      id: 0,
+      photo: '',
+      type: '',
+      time: 0,
+      header:'',
+      status:'',
+      text:'',
+      comments:[]
+   }*/
+   /*this.state = {
+     dataSource = []
+   }*/
   }
+
+  getServices = () => {
+      console.log("Inside getServices");
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
+         method: 'GET'
+      })
+      .then(response => {
+        console.log("response:"+JSON.stringify(response));
+        var obj= {};
+        obj= JSON.parse(JSON.stringify(response));
+        var bodyInit = JSON.parse(obj._bodyInit);
+        this.obj = bodyInit.obj;
+        var item = {};
+        item = JSON.stringify(this.obj);
+        console.log("response1:"+ JSON.stringify(item));
+        console.log("response obj"+item.id);
+
+        /*let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.setState({
+          dataSource : ds.cloneWithRows(this.obj)
+        })*/
+        //var res = JSON.parse(obj);
+        //console.log("res:"+JSON.stringify(res));
+
+      })
+      .catch((error) => {
+         console.error(error);
+      });
+   }
 
   _keyExtractor(post) {
     return post.id;
@@ -134,7 +180,16 @@ export class ArticleMenu extends React.Component {
     return (
       <View>
         <FlatList
-          data={this.data}
+          data={[{
+            'id': 7,
+            //'photo': require('../img/HVAC-Icon-Service-Page.png'),
+            'type': 'fact',
+            'time': -5665,
+            'header': 'HVAC',
+            'status': 'int',
+            'text': 'HVAC service description .',
+            'comments': []
+          }]}//{this.state.dataSource}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
           style={styles.container}/>
@@ -434,6 +489,85 @@ export class AdminDashboardMenu extends React.Component {
       )
     }*/
 }
+
+export class VendorDashboardMenu extends React.Component {
+  static navigationOptions = {
+    title: 'Dashboards'.toUpperCase()
+  };
+  render() {
+    return (
+      <CategoryMenu navigation={this.props.navigation} items={Routes.DashboardRoutes}/>
+    )
+  }
+
+
+    /*static navigationOptions = {
+      title: 'Admin Dashboard'.toUpperCase()
+    };
+
+    constructor(props) {
+      super(props);
+      console.log("inside admin dashboard");
+      this.data = {
+        statItems: [
+          {
+            name: 'Profile',
+            value: 'Profile',
+            //icon: 'github',
+            background: RkTheme.current.colors.dashboard.stars
+          },
+          {
+            name: 'Upgrade',
+            value: '2,256',
+            //icon: 'twitter',
+            background: RkTheme.current.colors.dashboard.tweets
+          },
+          {
+            name: 'Rent',
+            value: '1,124',
+            //icon: 'facebook',
+            background: RkTheme.current.colors.dashboard.likes
+          },
+        ]
+      };
+    }
+
+    renderStatItem(item) {
+      return (
+        <View style={[styles.statItemContainer, {backgroundColor: item.background}]} key={item.name}>
+          <View>
+            //<RkText rkType='header6' style={styles.statItemValue}>{item.value}</RkText>
+            <RkText rkType='secondary7' style={styles.statItemName}>{item.name}</RkText>
+          </View>
+          //<RkText rkType='awesome hero' style={styles.statItemIcon}>{FontAwesome[item.icon]}</RkText>
+        </View>
+      )
+    }
+
+    render() {
+      let chartBlockStyles = [styles.chartBlock, {backgroundColor: RkTheme.current.colors.control.background}];
+      return (
+        <ScrollView style={styles.screen}>
+          <View style={styles.statItems}>
+            {this.data.statItems.map(item => this.renderStatItem(item))}
+          </View>
+          <View style={chartBlockStyles}>
+            <DoughnutChart/>
+          </View>
+          <View style={chartBlockStyles}>
+            <AreaChart/>
+          </View>
+          <View style={chartBlockStyles}>
+            <ProgressChart/>
+          </View>
+          <View style={chartBlockStyles}>
+            <AreaSmoothedChart/>
+          </View>
+        </ScrollView>
+      )
+    }*/
+}
+
 export class DashboardMenu extends React.Component {
   /*static navigationOptions = {
     title: 'Dashboards'.toUpperCase()

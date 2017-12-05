@@ -1,2 +1,5 @@
 export * from './dashboard'
 export * from './adminDashboard'
+export * from './vendorDashboard'
+export * from './viewCustomers'
+export * from './viewAppointments'

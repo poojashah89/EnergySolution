@@ -7,6 +7,7 @@ import transition from './transitions';
 import {
   MainRoutes,
   AdminRoutes,
+  VendorRoutes,
   MenuRoutes
 } from './routes';
 
@@ -30,6 +31,23 @@ console.log('inside menu routes:line 16');
 (AdminRoutes).map(function (route, index) {
 
 console.log('inside admin routes:line 32');
+  let wrapToRoute = (route) => {
+    return {
+      screen: withRkTheme(route.screen),
+      title: route.title
+    }
+  };
+
+  flatRoutes[route.id] = wrapToRoute(route);
+  main[route.id] = wrapToRoute(route);
+  for (let child of route.children) {
+    flatRoutes[child.id] = wrapToRoute(child);
+  }
+});
+
+(VendorRoutes).map(function (route, index) {
+
+console.log('inside vendor routes:line 49');
   let wrapToRoute = (route) => {
     return {
       screen: withRkTheme(route.screen),

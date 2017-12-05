@@ -107,10 +107,56 @@ export class ArticleMenu extends React.Component {
   };
 
   constructor(props) {
+    console.log("Inside Arcticlemenu constructor");
     super(props);
+    this.getServices();
     this.data = data.getArticles('fact');
+    console.log("Article data:"+this.data);
+    //this.obj = [];
     this.renderItem = this._renderItem.bind(this);
+    /*this.state = {
+      id: 0,
+      photo: '',
+      type: '',
+      time: 0,
+      header:'',
+      status:'',
+      text:'',
+      comments:[]
+   }*/
+   /*this.state = {
+     dataSource = []
+   }*/
   }
+
+  getServices = () => {
+      console.log("Inside getServices");
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
+         method: 'GET'
+      })
+      .then(response => {
+        console.log("response:"+JSON.stringify(response));
+        var obj= {};
+        obj= JSON.parse(JSON.stringify(response));
+        var bodyInit = JSON.parse(obj._bodyInit);
+        this.obj = bodyInit.obj;
+        var item = {};
+        item = JSON.stringify(this.obj);
+        console.log("response1:"+ JSON.stringify(item));
+        console.log("response obj"+item.id);
+
+        /*let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.setState({
+          dataSource : ds.cloneWithRows(this.obj)
+        })*/
+        //var res = JSON.parse(obj);
+        //console.log("res:"+JSON.stringify(res));
+
+      })
+      .catch((error) => {
+         console.error(error);
+      });
+   }
 
   _keyExtractor(post) {
     return post.id;
@@ -143,7 +189,16 @@ export class ArticleMenu extends React.Component {
     return (
       <View>
         <FlatList
-          data={this.data}
+          data={[{
+            'id': 7,
+            //'photo': require('../img/HVAC-Icon-Service-Page.png'),
+            'type': 'fact',
+            'time': -5665,
+            'header': 'HVAC',
+            'status': 'int',
+            'text': 'HVAC service description .',
+            'comments': []
+          }]}//{this.state.dataSource}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
           style={styles.container}/>

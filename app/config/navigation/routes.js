@@ -20,19 +20,7 @@ export const AdminRoutes = [
       title: 'ViewCustomers',
       screen: Screens.ViewCustomers,
       children: []
-    },
-    {
-      id: 'ViewAppointments',
-      title: 'ViewAppointments',
-      screen: Screens.ViewAppointments,
-      children: []
-    }
-    /*{
-      id: 'GridV1',
-      title: 'Grid Menu V1',
-      screen: Screens.GridV1,
-      children: []
-    }*/]
+    }]
   }
 ];
 
@@ -47,13 +35,19 @@ export const VendorRoutes = [
       title: 'VendorDashboard',
       screen: Screens.VendorDashboard,
       children: []
-    }
-    /*{
-      id: 'GridV1',
-      title: 'Grid Menu V1',
-      screen: Screens.GridV1,
+    },
+    {
+      id: 'ViewAppointments',
+      title: 'ViewAppointments',
+      screen: Screens.ViewAppointments,
       children: []
-    }*/]
+    },
+    {
+      id: 'VendorService',
+      title: 'VendorService',
+      screen: Screens.VendorService,
+      children: []
+    }]
   }
 ];
 

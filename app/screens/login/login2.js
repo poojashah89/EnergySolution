@@ -58,7 +58,7 @@ export class LoginV2 extends React.Component {
         if(res.success==1){
           //set the token in authUtils
           auth.setToken(res.token);
-          
+
           if(res.obj.type == "Admin"){
             //redirect to the admin dashboard page
             StatusBar.setHidden(false, 'slide');
@@ -105,7 +105,6 @@ export class LoginV2 extends React.Component {
         onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={styles.header}>
           {renderIcon()}
-          <RkText rkType='logo h0'>Just Light</RkText>
         </View>
         <View style={styles.content}>
           <View>
@@ -139,8 +138,9 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.screen.base
   },
   image: {
-    height: scaleVertical(77),
-    resizeMode: 'contain'
+    height: scaleVertical(390),
+    resizeMode: 'contain',
+    width: 400
   },
   header: {
     paddingBottom: scaleVertical(10),

@@ -11,3 +11,4 @@ export * from './leasesuccess';
 export * from './admindeletesuccess';
 export * from './admindeletevendor';
 export * from './adminaddvendorsuccess';
+export * from './vendorservice';

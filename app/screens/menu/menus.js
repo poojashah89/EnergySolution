@@ -16,6 +16,7 @@ import {
 import {
   RkCard,
   RkText,
+  RkTextInput,
   RkButton,
   RkStyleSheet,
   RkTheme
@@ -88,19 +89,9 @@ export class SocialMenu extends React.Component {
   }
 }
 
-// This is the current energy service
+// This is the current energy service of Customer Start
 
 export class ArticleMenu extends React.Component {
-  /*static navigationOptions = {
-    title: 'Articles'.toUpperCase()
-  };
-  render() {
-    return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.ArticleRoutes}/>
-    )
-  }
-  Article 4
-  */
 
   static navigationOptions = {
     title: 'Current Energy Solution'.toUpperCase()
@@ -152,6 +143,10 @@ export class ArticleMenu extends React.Component {
   }
 }
 
+// This is the current energy service of Customer end
+
+//This Customer Rent Service Menu Start
+
 export class RentServiceMenu extends React.Component {
   static navigationOptions = {
     title: 'Rent Service Menu'.toUpperCase()
@@ -197,6 +192,159 @@ export class RentServiceMenu extends React.Component {
     )
   }
 }
+
+//This Customer Rent Service Menu End
+
+
+//This Customer Rent AdminEnergyService vendor menu start
+
+export class AdminEnergyServiceMenu extends React.Component {
+
+  static navigationOptions = {
+    title: 'Admin Energy Service Vendors'.toUpperCase()
+  };
+
+  constructor(props) {
+    super(props);
+    this.data = data.getArticles('fact');
+    this.renderItem = this._renderItem.bind(this);
+  }
+
+  _keyExtractor(post) {
+    return post.id;
+  }
+  _renderItem(info) {
+    return (
+        <RkCard rkType='horizontal' style={styles.card}>
+          <Image rkCardImg source={info.item.photo}/>
+
+          <View rkCardContent>
+            <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
+            <RkText rkType='secondary6 hintColor'></RkText>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('AdminDeleteVendor',{id: info.item.id})}>Delete</RkButton>
+            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
+          </View>
+          <View rkCardFooter>
+            <SocialBar rkType='space' showLabel={true}/>
+          </View >
+        </RkCard>
+    )
+  }
+
+  render() {
+    return (
+      <View>
+        <FlatList
+          data={this.data}
+          renderItem={this.renderItem}
+          keyExtractor={this._keyExtractor}
+          style={styles.container}/>
+      </View>
+    )
+  }
+}
+
+//This Customer Rent AdminEnergyService vendor menu End
+
+// This is Admin Add Energy Service vendor start
+
+export class AdminAddVendorMenu extends React.Component {
+  static navigationOptions = {
+    title: 'Add Energy Service Vendor'.toUpperCase()
+  };
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+
+    return (
+
+      <View style={styles.screen}>
+
+        <View style={{alignItems: 'center'}}>
+
+          <RkText rkType='h1'>Enter Energy Service Vendor</RkText>
+        </View>
+        <View style={styles.content}>
+          <View>
+              <RkText >Energy Service Vendor Name : </RkText>
+            <RkTextInput rkType='rounded' placeholder='HVAC'/>
+              <RkText >Add Energy Service</RkText>
+            <RkTextInput rkType='rounded' placeholder='Solar'/>
+            <RkText > Add Amount </RkText>
+            <RkTextInput rkType='rounded' placeholder='1000$ '/>
+            </View>
+
+          <View>
+          <GradientButton style={styles.save} rkType='large' text='Add Vendor' onPress={() => {
+              this.props.navigation.navigate('AdminAddVendorSuccess')
+            }}/>
+
+          </View>
+
+        </View>
+      </View>
+    )
+  }
+}
+
+//This is admin Add energy service vendor end
+
+
+//This is Admin View Energy Service
+export class AdminEnergyServiceList extends React.Component {
+
+  static navigationOptions = {
+    title: 'Admin Energy Service List'.toUpperCase()
+  };
+
+  constructor(props) {
+    super(props);
+    this.data = data.getArticles('fact');
+    this.renderItem = this._renderItem.bind(this);
+  }
+
+  _keyExtractor(post) {
+    return post.id;
+  }
+
+  _renderItem(info) {
+    return (
+      <TouchableOpacity
+        delayPressIn={70}
+        activeOpacity={0.8}
+        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
+        <RkCard rkType='horizontal' style={styles.card}>
+
+          <View rkCardContent>
+            <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
+            <RkText rkType='secondary6 hintColor'></RkText>
+
+            <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
+          </View>
+          <View rkCardFooter>
+            <SocialBar rkType='space' showLabel={true}/>
+          </View >
+        </RkCard>
+      </TouchableOpacity>
+    )
+  }
+
+  render() {
+    return (
+      <View>
+        <FlatList
+          data={this.data}
+          renderItem={this.renderItem}
+          keyExtractor={this._keyExtractor}
+          style={styles.container}/>
+      </View>
+    )
+  }
+}
+//This is Admin End Energy Service
 
 export class MessagingMenu extends React.Component {
   static navigationOptions = {

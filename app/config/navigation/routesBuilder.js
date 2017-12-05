@@ -72,6 +72,10 @@ export const NavigationRoutes = _.find(MainRoutes, {id: 'NavigationMenu'}).child
 //export const SocialRoutes = _.find(MainRoutes, {id: 'SocialMenu'}).children;
 export const ArticleRoutes = _.find(MainRoutes, {id: 'ArticlesMenu'}).children;
 export const RentServiceRoutes = _.find(MainRoutes, {id: 'RentServiceMenu'}).children;
+export const AdminEnergyServiceMenu = _.find(MainRoutes, {id: 'AdminEnergyServiceMenu'}).children;
+export const AdminAddVendorMenu = _.find(MainRoutes, {id: 'AdminAddVendorMenu'}).children;
+export const AdminEnergyServiceList = _.find(MainRoutes, {id: 'AdminEnergyServiceList'}).children;
+
 //export const MessagingRoutes = _.find(MainRoutes, {id: 'MessagingMenu'}).children;
 export const DashboardRoutes = _.find(MainRoutes, {id: 'DashboardsMenu'}).children;
 //export const AdminDashboardRoutes = _.find(AdminRoutes, {id: 'AdminDashboardMenu'}).children;

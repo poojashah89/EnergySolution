@@ -36,16 +36,16 @@ const articles = [{
   'comments': []
 },{
   'id': 11,
-  'photo': require('../img/HVAC-Icon-Service-Page.png'),
+  'photo': require('../img/bounce.png'),
   'type': 'fact',
-  'time': -52365,
-  'header': 'Cold Water',
+  'time': -8373,
+  'header': 'IoT',
   'status': 'uninstalled',
-  'text': 'This is normal ebergy service.',
+  'text': 'This is the the IoT Energy Service.',
   'comments': []
 },{
   'id': 12,
-  'photo': require('../img/icon-IoT.png'),
+  'photo': require('../img/citrasolar.png'),
   'type': 'fact',
   'time': -8373,
   'header': 'IoT',

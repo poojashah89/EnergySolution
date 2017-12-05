@@ -102,24 +102,15 @@ export class ArticleMenu extends React.Component {
     console.log("Inside Arcticlemenu constructor");
     super(props);
     this.getServices();
-    this.data = data.getArticles('fact');
-    console.log("Article data:"+this.data);
+    //this.data = data.getArticles('fact');
+    //console.log("Article data:"+this.data);
     //this.obj = [];
-    this.renderItem = this._renderItem.bind(this);
-    /*this.state = {
-      id: 0,
-      photo: '',
-      type: '',
-      time: 0,
-      header:'',
-      status:'',
-      text:'',
-      comments:[]
-   }*/
+
    this.state = {
-     //dataSource = []
-     isLoading: true
-   }
+     serviceList : []
+     //isLoading: true
+   };
+   this.renderItem = this._renderItem.bind(this);
   }
 
   getServices = () => {
@@ -138,13 +129,11 @@ export class ArticleMenu extends React.Component {
         console.log("response1:"+ JSON.stringify(item));
         console.log("response obj"+item.id);
 
-        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        //let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.setState({
-          isLoading: false,
-          dataSource : ds.cloneWithRows(this.obj)
-        })
-        //var res = JSON.parse(obj);
-        //console.log("res:"+JSON.stringify(res));
+          //isLoading: false,
+          serviceList : this.obj
+        });
 
       })
       .catch((error) => {
@@ -157,7 +146,7 @@ export class ArticleMenu extends React.Component {
   }
 
   _renderItem(info) {
-    if (this.state.isLoading) {
+    //if (this.state.isLoading) {
     return (
       <TouchableOpacity
         delayPressIn={70}
@@ -178,23 +167,14 @@ export class ArticleMenu extends React.Component {
         </RkCard>
       </TouchableOpacity>
     )
-  }
+  //}
   }
 
   render() {
     return (
       <View>
         <FlatList
-          data=/*{[{
-            'id': 7,
-            'photo': require('../img/HVAC-Icon-Service-Page.png'),
-            'type': 'fact',
-            'time': -5665,
-            'header': 'HVAC',
-            'status': 'int',
-            'text': 'HVAC service description .',
-            'comments': []
-          }]}*/{this.state.dataSource}
+          data={this.state.serviceList}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
           style={styles.container}/>

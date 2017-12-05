@@ -20,6 +20,12 @@ export const AdminRoutes = [
       title: 'ViewCustomers',
       screen: Screens.ViewCustomers,
       children: []
+    },
+    {
+      id: 'ViewAppointments',
+      title: 'ViewAppointments',
+      screen: Screens.ViewAppointments,
+      children: []
     }
     /*{
       id: 'GridV1',

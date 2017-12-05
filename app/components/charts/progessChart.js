@@ -16,8 +16,6 @@ import {Svg, Text as SvgText} from 'react-native-svg';
 import {scale} from '../../utils/scale';
 
 export class ProgressChart extends RkComponent {
-
-
   constructor(props) {
     super(props);
     this.size = 120;

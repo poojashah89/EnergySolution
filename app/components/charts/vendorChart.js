@@ -15,7 +15,7 @@ import {
   VictoryArea,
 } from "victory-native";
 
-export class AreaSmoothedChart extends RkComponent {
+export class VendorChart extends RkComponent {
 
   constructor(props) {
     super(props);
@@ -67,7 +67,7 @@ export class AreaSmoothedChart extends RkComponent {
   render() {
     return (
       <View>
-        <RkText rkType='header4'>DAILY SERVICE USAGE</RkText>
+        <RkText rkType='header4'>APPOINTMENTS</RkText>
         <VictoryChart padding={{top: 20, left: 40, right: 15, bottom: 40}} width={this.size - 60}>
           <VictoryAxis
             tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}

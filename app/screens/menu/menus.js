@@ -241,14 +241,51 @@ export class RentServiceMenu extends React.Component {
 export class AdminEnergyServiceMenu extends React.Component {
 
   static navigationOptions = {
-    title: 'Admin Energy Service Vendors'.toUpperCase()
+    title: 'Energy Services'.toUpperCase()
   };
 
   constructor(props) {
     super(props);
-    this.data = data.getArticles('fact');
-    this.renderItem = this._renderItem.bind(this);
+    //1. call the function to get the list of items
+    this.getServices();
+    this.pic = 'https://www.servicechampions.net/wp-content/uploads/2015/03/air-ducts-energy-star.jpg';//'https://static1.squarespace.com/static/58588d72e6f2e1e1d54aa8e4/t/5876d0da03596ef4262a5362/1484181726567/Icon+Clean+Tech+darkgreen.png';
+    //2.Define the array to store the list
+    this.state = {
+       serviceList : []
+    };
+    //3. bind renderItem to call _renderItem function to render each item in the list
+   this.renderItem = this._renderItem.bind(this);
   }
+
+  //4. write the function to get the list from backend
+  getServices = () => {
+      console.log("Inside getServices");
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
+         method: 'GET'
+      })
+      .then(response => {
+        console.log("response:"+JSON.stringify(response));
+        var obj= {};
+        //parse the response - get response from response._bodyInit
+        obj= JSON.parse(JSON.stringify(response));
+        var bodyInit = JSON.parse(obj._bodyInit);
+        this.obj = bodyInit.obj;
+        var item = {};
+        item = JSON.stringify(this.obj);
+        console.log("response1:"+ JSON.stringify(item));
+        console.log("response obj"+item.id);
+
+        //5. set the array from the response to the list
+        this.setState({
+          //isLoading: false,
+          serviceList : this.obj
+        });
+
+      })
+      .catch((error) => {
+         console.error(error);
+      });
+   }
 
   _keyExtractor(post) {
     return post.id;
@@ -256,12 +293,11 @@ export class AdminEnergyServiceMenu extends React.Component {
   _renderItem(info) {
     return (
         <RkCard rkType='horizontal' style={styles.card}>
-          <Image rkCardImg source={info.item.photo}/>
+          <Image rkCardImg source={{uri: this.pic}}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
-            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('AdminDeleteVendor',{id: info.item.id})}>Delete</RkButton>
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>
@@ -275,7 +311,7 @@ export class AdminEnergyServiceMenu extends React.Component {
     return (
       <View>
         <FlatList
-          data={this.data}
+          data={this.state.serviceList}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
           style={styles.container}/>

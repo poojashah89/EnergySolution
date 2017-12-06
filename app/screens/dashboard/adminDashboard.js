@@ -95,7 +95,7 @@ export class AdminDashboard extends React.Component {
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.other}
             </RkText>
-            <RkText rkType='h3'>View Energy Service Vendor</RkText>
+            <RkText rkType='h3'>View Energy Services</RkText>
           </RkButton>
 
           <View style={chartBlockStyles}>

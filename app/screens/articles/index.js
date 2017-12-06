@@ -16,3 +16,5 @@ export * from './adminenergyservicemenu';
 export * from './vendoraddservice';
 export * from './vendoraddservicesuccess';
 export * from './vendordeleteservicesuccess';
+export * from './rentmenu';
+export * from './customerrentmenu';

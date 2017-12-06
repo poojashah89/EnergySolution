@@ -41,7 +41,6 @@ export class VendorService extends React.Component {
   constructor(props) {
     super(props);
     //1. call the function to get the list of items
-    this.getServices();
     this.pic = 'https://www.sciencedaily.com/images/2013/04/130404122415_1_540x360.jpg';//'https://static1.squarespace.com/static/58588d72e6f2e1e1d54aa8e4/t/5876d0da03596ef4262a5362/1484181726567/Icon+Clean+Tech+darkgreen.png';
     //2.Define the array to store the list
     this.state = {
@@ -52,9 +51,8 @@ export class VendorService extends React.Component {
   }
 
   //4. write the function to get the list from backend
-  getServices = () => {
-      console.log("Inside getServices");
-      fetch('https://cmpe235-finalproject.herokuapp.com/v1/service/getservices', {
+  componentDidMount(){
+      return fetch('https://cmpe235-finalproject.herokuapp.com/v1/service/getservices', {
         method: 'POST',
         headers: {
         'Accept': 'application/json',
@@ -161,7 +159,7 @@ render() {
 
 
     <ActionButton buttonColor="rgba(231,76,60,1)" onPress={() => this.props.navigation.navigate('VendorAddService')}>
-          <Icon name="ios-add" style={styles.actionButtonIcon} />
+          <Icon name="plus" style={styles.actionButtonIcon} />
         </ActionButton>
 
     </View>

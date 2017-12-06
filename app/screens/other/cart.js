@@ -62,14 +62,49 @@ export class Cart extends React.Component {
       var item = {};
       item = JSON.stringify(this.obj);
       console.log("item:"+ JSON.stringify(item));
-      this.setState({
+
+      for (i = 0; i < this.obj.length; i++) {
+          var serviceid = this.obj._id
+          fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
+             method: 'POST',
+             headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json',
+             },
+             body: JSON.stringify({
+                 for (i = 0; i < this.obj.length; i++) {
+                   if(this.obj._id == serviceid) {
+
+                   }
+                 }
+             })
+          }).then(response => {
+            console.log("response:"+JSON.stringify(response));
+            var obj= {};
+            obj= JSON.parse(JSON.stringify(response));
+            var bodyInit = JSON.parse(obj._bodyInit);
+            console.log("bodyInit:"+ bodyInit);
+            this.obj = bodyInit.obj;
+            var item = {};
+            item = JSON.stringify(this.obj);
+            console.log("item:"+ JSON.stringify(item));
+
+            this.setState({
+              //isLoading: false,
+              cartList : this.obj
+            });
+        }).catch(error => {
+          console.error(error);
+        });
+      }
+      /*this.setState({
         //isLoading: false,
         cartList : this.obj
-      });
+      });*/
   }).catch(error => {
     console.error(error);
   });
-   }
+}
 
    _renderItem(info) {
        return (

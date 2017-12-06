@@ -106,10 +106,10 @@ export class ArticleMenu extends React.Component {
     //console.log("Article data:"+this.data);
     //this.obj = [];
     this.pic = 'https://facebook.github.io/react-native/docs/assets/favicon.png';//"https://github.com/mohamadkhan19/CMPE235_MobileSoftwareDesign_FinalProject_Backend/blob/master/img/normalEnergy.png";
-   this.state = {
+    this.state = {
      serviceList : []
      //isLoading: true
-   };
+    };
    this.renderItem = this._renderItem.bind(this);
   }
 

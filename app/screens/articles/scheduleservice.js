@@ -28,7 +28,9 @@ export class ScheduleService extends React.Component {
   constructor(props) {
     super(props);
     let {params} = this.props.navigation.state;
+    console.log("Schedule service:"+JSON.stringify(this.props.navigation.state));
     let id = params ? params.id : 1;
+    this.pic = 'https://readwrite.com/wp-content/uploads/energy-effeciency-e1472285339838.jpg';
     this.data = data.getArticle(id);
   }
 
@@ -36,7 +38,7 @@ export class ScheduleService extends React.Component {
     return (
       <ScrollView style={styles.root}>
         <RkCard rkType='article'>
-          <Image rkCardImg source={this.data.photo}/>
+          <Image rkCardImg source={{uri: this.pic}}/>
           <View rkCardHeader>
             <View>
               <RkText style={styles.title} rkType='header4'>{this.data.header}</RkText>

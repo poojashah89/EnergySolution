@@ -99,7 +99,7 @@ export class ArticleMenu extends React.Component {
   };
 
   constructor(props) {
-    console.log("Inside Arcticlemenu constructor");
+
     super(props);
     this.getServices();
     //this.data = data.getArticles('fact');

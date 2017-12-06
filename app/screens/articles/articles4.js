@@ -61,14 +61,18 @@ export class Articles4 extends React.Component {
 
   constructor(props) {
     super(props);
+    //1. call the function to get the list of items
     this.getServices();
     this.pic = 'https://www.servicechampions.net/wp-content/uploads/2015/03/air-ducts-energy-star.jpg';//'https://static1.squarespace.com/static/58588d72e6f2e1e1d54aa8e4/t/5876d0da03596ef4262a5362/1484181726567/Icon+Clean+Tech+darkgreen.png';
+    //2.Define the array to store the list
     this.state = {
        serviceList : []
     };
+    //3. bind renderItem to call _renderItem function to render each item in the list
    this.renderItem = this._renderItem.bind(this);
   }
 
+  //4. write the function to get the list from backend
   getServices = () => {
       console.log("Inside getServices");
       fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
@@ -77,6 +81,7 @@ export class Articles4 extends React.Component {
       .then(response => {
         console.log("response:"+JSON.stringify(response));
         var obj= {};
+        //parse the response - get response from response._bodyInit
         obj= JSON.parse(JSON.stringify(response));
         var bodyInit = JSON.parse(obj._bodyInit);
         this.obj = bodyInit.obj;
@@ -85,7 +90,7 @@ export class Articles4 extends React.Component {
         console.log("response1:"+ JSON.stringify(item));
         console.log("response obj"+item.id);
 
-        //let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        //5. set the array from the response to the list
         this.setState({
           //isLoading: false,
           serviceList : this.obj
@@ -129,6 +134,7 @@ export class Articles4 extends React.Component {
     return (
       <View>
         <FlatList
+        //6. Set the data for the flat list
           data={this.state.serviceList}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}

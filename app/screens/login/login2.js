@@ -58,7 +58,7 @@ export class LoginV2 extends React.Component {
         if(res.success==1){
           //set the token in authUtils
           auth.setToken(res.token);
-
+          auth.setUserId(res.obj._id);
           if(res.obj.type == "Admin"){
             //redirect to the admin dashboard page
             StatusBar.setHidden(false, 'slide');

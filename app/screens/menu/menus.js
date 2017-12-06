@@ -257,35 +257,6 @@ export class AdminEnergyServiceMenu extends React.Component {
    this.renderItem = this._renderItem.bind(this);
   }
 
-  //4. write the function to get the list from backend
-  getServices = () => {
-      console.log("Inside getServices");
-      fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
-         method: 'GET'
-      })
-      .then(response => {
-        console.log("response:"+JSON.stringify(response));
-        var obj= {};
-        //parse the response - get response from response._bodyInit
-        obj= JSON.parse(JSON.stringify(response));
-        var bodyInit = JSON.parse(obj._bodyInit);
-        this.obj = bodyInit.obj;
-        var item = {};
-        item = JSON.stringify(this.obj);
-        console.log("response1:"+ JSON.stringify(item));
-        console.log("response obj"+item.id);
-
-        //5. set the array from the response to the list
-        this.setState({
-          //isLoading: false,
-          serviceList : this.obj
-        });
-
-      })
-      .catch((error) => {
-         console.error(error);
-      });
-   }
 
   _keyExtractor(post) {
     return post.id;
@@ -293,11 +264,12 @@ export class AdminEnergyServiceMenu extends React.Component {
   _renderItem(info) {
     return (
         <RkCard rkType='horizontal' style={styles.card}>
-          <Image rkCardImg source={{uri: this.pic}}/>
+          <Image rkCardImg source={info.item.photo}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('AdminDeleteVendor',{id: info.item.id})}>Delete</RkButton>
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>
@@ -311,7 +283,7 @@ export class AdminEnergyServiceMenu extends React.Component {
     return (
       <View>
         <FlatList
-          data={this.state.serviceList}
+          data={this.data}
           renderItem={this.renderItem}
           keyExtractor={this._keyExtractor}
           style={styles.container}/>

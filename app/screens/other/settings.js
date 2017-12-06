@@ -86,7 +86,7 @@ export class Settings extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton} onPress={() => this.props.navigation.navigate('SignUp',{id: 0})}>
+            <TouchableOpacity style={styles.rowButton} onPress={() => this.props.navigation.navigate('Login2',{id: 0})}>
               <RkText rkType='header6'>Logout</RkText>
             </TouchableOpacity>
           </View>

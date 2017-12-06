@@ -1,8 +1,13 @@
-package com.justlight;
+package com.kittentricks;
 
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.realm.react.RealmReactPackage;
+import com.horcrux.svg.SvgPackage;
+import com.beefe.picker.PickerViewPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -11,7 +16,7 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
-public class fMainApplication extends Application implements ReactApplication {
+public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
@@ -22,7 +27,12 @@ public class fMainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
+          new MainReactPackage(),
+            new RealmReactPackage(),
+            new SvgPackage(),
+            new PickerViewPackage(),
+            new LinearGradientPackage(),
+            new GoogleAnalyticsBridgePackage()
       );
     }
   };

@@ -1,4 +1,4 @@
-package com.akveo.kittenTricks;
+package com.kittentricks;
 
 import com.facebook.react.ReactActivity;
 

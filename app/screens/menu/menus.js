@@ -105,7 +105,7 @@ export class ArticleMenu extends React.Component {
     //this.data = data.getArticles('fact');
     //console.log("Article data:"+this.data);
     //this.obj = [];
-
+    this.pic = 'https://facebook.github.io/react-native/docs/assets/favicon.png';//"https://github.com/mohamadkhan19/CMPE235_MobileSoftwareDesign_FinalProject_Backend/blob/master/img/normalEnergy.png";
    this.state = {
      serviceList : []
      //isLoading: true
@@ -153,7 +153,7 @@ export class ArticleMenu extends React.Component {
         activeOpacity={0.8}
         onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
         <RkCard rkType='horizontal' style={styles.card}>
-          <Image rkCardImg source={info.item.photo}/>
+          <Image rkCardImg source={{uri: this.pic}}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>

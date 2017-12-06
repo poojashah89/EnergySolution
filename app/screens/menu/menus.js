@@ -264,8 +264,7 @@ export class AdminEnergyServiceMenu extends React.Component {
 
   constructor(props) {
     super(props);
-    //1. call the function to get the list of items
-    this.getServices();
+
     this.pic = 'https://www.servicechampions.net/wp-content/uploads/2015/03/air-ducts-energy-star.jpg';//'https://static1.squarespace.com/static/58588d72e6f2e1e1d54aa8e4/t/5876d0da03596ef4262a5362/1484181726567/Icon+Clean+Tech+darkgreen.png';
     //2.Define the array to store the list
     this.state = {
@@ -276,9 +275,9 @@ export class AdminEnergyServiceMenu extends React.Component {
   }
 
   //4. write the function to get the list from backend
-  getServices = () => {
-      console.log("Inside getServices");
-      fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
+  componentDidMount(){
+
+      return fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
          method: 'GET'
       })
       .then(response => {
@@ -319,7 +318,7 @@ export class AdminEnergyServiceMenu extends React.Component {
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
-        
+
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>

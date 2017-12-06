@@ -29,8 +29,12 @@ export class RentService extends React.Component {
     super(props);
     let {params} = this.props.navigation.state;
     let id = params ? params.id : 1;
+    let servicename = params ? params.servicename : 1;
+    console.log('servicename' + servicename)
     this.data = data.getArticle(id);
+    console.log("header " + this.data.id)
     this.state = {
+      servicename: '',
       token: '',
       serviceid:'',
       squarefeet: '',
@@ -56,8 +60,8 @@ export class RentService extends React.Component {
      this.setState({ price: text })
   }
 
-  rentService = (serviceid, squarefeet, duration, warranty, price) => {
-      console.log('in rent service')
+  rentService = (serviceid, servicename, squarefeet, duration, warranty, price) => {
+      console.log('in rent service' + serviceid + servicename)
       fetch('https://cmpe235-finalproject.herokuapp.com/v1/cart/add', {
          method: 'POST',
          headers: {
@@ -65,12 +69,13 @@ export class RentService extends React.Component {
          'Content-Type': 'application/json',
          },
          body: JSON.stringify({
-         token: auth.getToken(),
-         serviceid: serviceid,
-         squarefeet: squarefeet,
-         duration: duration,
-         warranty: warranty,
-         price: this.state.squarefeet*this.state.duration*2
+           token: auth.getToken(),
+           service_id: serviceid,
+           service_name: servicename,
+           squarefeet: squarefeet,
+           duration: duration,
+           warranty: warranty,
+           price: this.state.squarefeet*this.state.duration*2
          })
       }).then(response => {
         console.log('in result')
@@ -99,7 +104,7 @@ export class RentService extends React.Component {
           <View rkCardContent>
             <View>
               <RkText>Service Id : </RkText>
-              <RkTextInput rkType='rounded' placeholder='Id' onChangeText = {this.handleServiceId}/>
+              <RkTextInput rkType='rounded' placeholder='id' value={(this.data.id).toString()}/>
             </View>
           </View>
           <View rkCardContent>
@@ -128,7 +133,7 @@ export class RentService extends React.Component {
           </View>
           <GradientButton style={styles.save} rkType='large' text='Add to Cart' onPress={
             //this.props.navigation.navigate('LeaseSuccess')
-            () => this.rentService(this.state.serviceid, this.state.squarefeet,this.state.duration,this.state.warranty,this.state.price)
+            () => this.rentService(this.data.id, this.data.text, this.state.squarefeet,this.state.duration,this.state.warranty,this.state.price)
           }/>
 
           </RkCard>

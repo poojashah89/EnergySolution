@@ -1,8 +1,6 @@
 import React from 'react';
 import * as Screens from '../../screens/index';
-import {VendorAddService} from './vendoraddservice';
-import {VendorDeleteServiceSuccess} from './vendordeleteservicesuccess';
-
+import {VendorAddServiceSuccess} from './vendoraddservicesuccess';
 import {
   ScrollView,
   View,
@@ -12,6 +10,7 @@ import {
 import {
   RkButton,
   RkText,
+  RkTextInput,
   RkStyleSheet,
   RkTheme
 } from 'react-native-ui-kitten';
@@ -25,14 +24,14 @@ import {FontAwesome} from '../../assets/icons';
 /*
 * Used in Vendor Dashboard View Service
 */
-export class VendorService extends React.Component {
+export class VendorAddService extends React.Component {
   static navigationOptions = {
-    title: 'Your Services'.toUpperCase()
+    title: 'Add Service'.toUpperCase()
   };
 
   constructor(props) {
     super(props);
-
+    console.log("In Vendor Add");
     this.state = {
       sendPush: true,
       shouldRefresh: false,
@@ -45,33 +44,16 @@ export class VendorService extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.section}>
-          <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary header3'>SERVICE               DELETE </RkText>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header4'>HVAC1</RkText>
-              <RkButton onPress={() => this.props.navigation.navigate('VendorDeleteServiceSuccess')}>DELETE</RkButton>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header4'>HVAC2</RkText>
-              <RkButton onPress={() => this.props.navigation.navigate('VendorDeleteServiceSuccess')}>DELETE</RkButton>
-            </TouchableOpacity>
-          </View>
+      <View style={styles.save}>
+        <View>
+          <RkTextInput rkType='rounded' placeholder='Service name'/>
+          <RkTextInput rkType='rounded' placeholder='Service Details'/>
+          <RkTextInput rkType='rounded' placeholder='Price'/>
+          <GradientButton style={styles.save} rkType='large' text='ADD' onPress = {
+            () =>   this.props.navigation.navigate('VendorAddServiceSuccess')}/>
+
         </View>
-
-        <View style={styles.content}>
-          <View>
-            <GradientButton style={styles.save} rkType='large' text='Add Service' onPress={() => {
-              this.props.navigation.navigate('VendorAddService')
-            }}/>
-
-          </View>
-        </View>
-
+      </View>
       </ScrollView>
     )
   }
@@ -104,5 +86,8 @@ let styles = RkStyleSheet.create(theme => ({
   },
   switch: {
     marginVertical: 14
+  },
+  save: {
+    marginVertical: 20
   },
 }));

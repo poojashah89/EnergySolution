@@ -47,6 +47,22 @@ export const VendorRoutes = [
       title: 'VendorService',
       screen: Screens.VendorService,
       children: []
+    },{
+      id: 'VendorAddServiceSuccess',
+      title: 'VendorAddServiceSuccess',
+      screen: Screens.VendorAddServiceSuccess,
+      children: []
+    },{
+      id: 'VendorDeleteServiceSuccess',
+      title: 'VendorDeleteServiceSuccess',
+      screen: Screens.VendorDeleteServiceSuccess,
+      children: []
+    },
+    {
+      id: 'VendorAddService',
+      title: 'VendorAddService',
+      screen: Screens.VendorAddService,
+      children: []
     }]
   }
 ];

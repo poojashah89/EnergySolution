@@ -1,28 +1,60 @@
 import React from 'react';
+
+//import {CategoryMenu} from './categoryMenu';
+import * as Routes from '../../config/navigation/routesBuilder';
 import {
   ScrollView,
+  FlatList,
   Image,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions,
+  StatusBar,
+  StyleSheet
 } from 'react-native';
+
 import {
   RkCard,
-  RkButton,
-  RkTextInput,
   RkText,
-  RkStyleSheet
+  RkTextInput,
+  RkButton,
+  RkStyleSheet,
+  RkTheme
 } from 'react-native-ui-kitten';
+
+import {GradientButton} from '../../components/';
+import {Walkthrough} from '../../components/walkthrough';
+import {Walkthrough1} from '../walkthroughs/walkthrough1';
+import {Walkthrough2} from '../walkthroughs/walkthrough2';
+import {LoginV2} from '../login/login2';
+//import {PaginationIndicator} from '../../components';
+import {Articles4} from '../articles/articles4';
+import {Upgrade} from '../theme/upgrade';
+import {Cart} from '../other/cart';
 import {data} from '../../data';
-import RentService from './rent';
-import {
-  Avatar,
-  SocialBar,
-  GradientButton} from '../../components';
+
 let moment = require('moment');
 
-/*
-* Class for displaying rental services
-*/
+import {FontAwesome} from '../../assets/icons';
+import {
+  ProgressChart,
+  DoughnutChart,
+  AreaChart,
+  AreaSmoothedChart,
+  Avatar,
+  SocialBar,
+  PaginationIndicator,
+  RkSwitch,
+  FindFriends
+} from '../../components/';
+
+
+import {FontIcons} from '../../assets/icons';
+const paddingValue = 8;
+
+import {NavigationActions} from 'react-navigation';
+
+
 export class RentMenu extends React.Component {
   static navigationOptions = {
     title: 'Rent Service Menu'.toUpperCase()
@@ -48,7 +80,7 @@ export class RentMenu extends React.Component {
         <RkCard rkType='backImg'>
           <Image rkCardImg source={info.item.photo}/>
           <View rkCardImgOverlay rkCardContent style={styles.overlay}>
-            <RkText rkType='header6'>{info.item.header}</RkText>
+            <RkText rkType='header4'>{info.item.header}</RkText>
 
           </View>
         </RkCard>
@@ -68,12 +100,13 @@ export class RentMenu extends React.Component {
     )
   }
 }
-
 let styles = RkStyleSheet.create(theme => ({
-  root: {
-    backgroundColor: theme.colors.screen.base
+
+  RkText: {
+  color  : 'red'
+
   },
-  title: {
-    marginBottom: 5
-  },
+
+
+
 }));

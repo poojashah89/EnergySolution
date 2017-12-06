@@ -84,7 +84,7 @@ export class Dashboard extends React.Component {
         <ScrollView style={styles.root} contentContainerStyle={styles.rootContainer}>
           <RkButton rkType='square shadow' style={{width: size, height: size}}
             onPress={() => {
-              this.props.navigation.navigate('RentServiceMenu')
+              this.props.navigation.navigate('RentServiceMenu1')
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.dashboard}
             </RkText>

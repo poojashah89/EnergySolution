@@ -260,10 +260,10 @@ export const MainRoutes = [
    },]
  },
   {
-    id: 'RentServiceMenu',
+    id: 'RentServiceMenu1',
     title: 'Rent',
     icon: FontIcons.navigation,
-    screen: Screens.RentServiceMenu,
+    screen: Screens.RentServiceMenu1,
     children: [{
       id: 'RentService',
       title: 'Rent Energy Service',

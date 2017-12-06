@@ -87,7 +87,7 @@ export class Cart extends React.Component {
       <ScrollView style={styles.container}>
       <View>
         <View style={[styles.row, styles.heading]}>
-          <RkText rkType='primary header6'>CART ITEMS     PRICE</RkText>
+          <RkText rkType='primary header6'>CART ITEMS                       PRICE</RkText>
         </View>
         <View>
           <FlatList

@@ -4,7 +4,8 @@ import {
   ScrollView,
   View,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  StatusBar
 } from 'react-native';
 import {
   RkButton,
@@ -18,6 +19,7 @@ import {
   FindFriends
 } from '../../components';
 import {FontAwesome} from '../../assets/icons';
+import {NavigationActions} from 'react-navigation';
 
 export class AdminDeleteSuccess extends React.Component {
   static navigationOptions = {
@@ -55,7 +57,13 @@ export class AdminDeleteSuccess extends React.Component {
               <RkText rkType='h3' style={{marginLeft: 90}}> </RkText>
               <View>
               </View>
-              <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('AdminDashboard')}>Go To Dashboard</RkButton>
+              <RkButton style={{marginLeft: 120, width:150}} onPress={()=>
+              {StatusBar.setHidden(false, 'slide');
+            let toHome = NavigationActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({routeName: 'AdminDashboard'})]
+          });
+          this.props.navigation.dispatch(toHome)}}>Go To Dashboard</RkButton>
 
 
         </View>

@@ -108,10 +108,6 @@ componentDidMount(){
 render() {
   return (
     <View>
-    <View style={styles.container}>
-      <RkText rkType='primary header6'>    NAME                                     EMAIL</RkText>
-    </View>
-    <View>
       <FlatList
       //6. Set the data for the flat list
         data={this.state.serviceList}
@@ -119,7 +115,6 @@ render() {
         keyExtractor={(item, index) => item._id}
         style={styles.container}/>
     </View>
-  </View>
   )
 }
 }

@@ -189,7 +189,7 @@ export class ArticleMenu extends React.Component {
 
 export class RentServiceMenu extends React.Component {
   static navigationOptions = {
-    title: 'Rent Service Menu'.toUpperCase()
+    title: 'Rent Service'.toUpperCase()
   };
 
   constructor(props) {
@@ -224,11 +224,12 @@ export class RentServiceMenu extends React.Component {
     let info = {};
     info.item = this.data[0];
     return (
+      <View style={{flex:1, backgroundColor: '#f3f3f3'}}>
       <FlatList data={this.data}
                 renderItem={this.renderItem}
                 keyExtractor={this._keyExtractor}
                 style={styles.root}/>
-
+      </View>
     )
   }
 }

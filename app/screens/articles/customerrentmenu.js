@@ -57,7 +57,7 @@ import {NavigationActions} from 'react-navigation';
 
 export class RentServiceMenu1 extends React.Component {
   static navigationOptions = {
-    title: 'Rent Service Menu'.toUpperCase()
+    title: 'Rent Service'.toUpperCase()
   };
 
   /*constructor(props) {
@@ -153,7 +153,7 @@ export class RentServiceMenu1 extends React.Component {
 
 render() {
   return (
-    <View>
+    <View style={{flex:1, backgroundColor: '#f3f3f3'}}>
       <FlatList
       //6. Set the data for the flat list
         data={this.state.serviceList}

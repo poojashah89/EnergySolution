@@ -459,13 +459,13 @@ export const SideMenuRoutes = [
       icon: FontIcons.other,
       children: []
   },
-    {
+    /*{
       id: 'LoginMenu',
       title: 'Sign Out',
       icon: FontIcons.login,
       screen: Screens.LoginMenu,
       children: []
-    },
+    },*/
     {
       id: 'Settings',
       title: 'Settings',

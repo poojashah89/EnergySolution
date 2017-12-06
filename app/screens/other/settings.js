@@ -65,7 +65,7 @@ export class Settings extends React.Component {
                       onValueChange={(shouldRefresh) => this.setState({shouldRefresh})}/>
           </View>
         </View>
-      
+
         <View style={styles.section}>
           <View style={[styles.row, styles.heading]}>
             <RkText rkType='primary header6'>SUPPORT</RkText>
@@ -86,7 +86,7 @@ export class Settings extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styles.row}>
-            <TouchableOpacity style={styles.rowButton}>
+            <TouchableOpacity style={styles.rowButton} onPress={() => this.props.navigation.navigate('SignUp',{id: 0})}>
               <RkText rkType='header6'>Logout</RkText>
             </TouchableOpacity>
           </View>

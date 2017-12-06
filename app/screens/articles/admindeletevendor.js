@@ -53,7 +53,7 @@ export class AdminDeleteVendor extends React.Component {
           </View>
 
           <GradientButton style={styles.save} rkType='large' text='No' onPress={() => {
-            this.props.navigation.navigate('AdminEnergyServiceMenu')
+            this.props.navigation.navigate('AdminDashboard')
           }}/>
         </RkCard>
       </ScrollView>

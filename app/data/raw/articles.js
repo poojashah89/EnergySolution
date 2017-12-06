@@ -21,7 +21,7 @@ const articles = [{
   'photo': require('../img/light.png'),
   'type': 'fact',
   'time': -565,
-  'header': 'Light Energu Service',
+  'header': 'Light Energy Service',
   'status': 'uninstalled',
   'text': 'This is the Light Energy service.',
   'comments': []
@@ -30,7 +30,7 @@ const articles = [{
   'photo': require('../img/normalEnergy.png'),
   'type': 'fact',
   'time': -52365,
-  'header': 'Cold Water',
+  'header': 'Noraml Energy Service',
   'status': 'uninstalled',
   'text': 'This is normal ebergy service.',
   'comments': []
@@ -39,7 +39,7 @@ const articles = [{
   'photo': require('../img/bounce.png'),
   'type': 'fact',
   'time': -8373,
-  'header': 'IoT',
+  'header': 'Bounce Energy',
   'status': 'uninstalled',
   'text': 'This is the the IoT Energy Service.',
   'comments': []
@@ -48,7 +48,7 @@ const articles = [{
   'photo': require('../img/citrasolar.png'),
   'type': 'fact',
   'time': -8373,
-  'header': 'IoT',
+  'header': 'Citra Solar Energy',
   'status': 'uninstalled',
   'text': 'This is the the IoT Energy Service.',
   'comments': []

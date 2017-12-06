@@ -87,7 +87,7 @@ export class VendorDashboard extends React.Component {
             onPress={() => {
               this.props.navigation.navigate('ViewAppointments')
             }}>
-            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.theme}
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.dashboard}
             </RkText>
             <RkText rkType='h3'>Appointments</RkText>
           </RkButton>

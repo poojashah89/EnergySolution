@@ -84,6 +84,14 @@ export class Dashboard extends React.Component {
         <ScrollView style={styles.root} contentContainerStyle={styles.rootContainer}>
           <RkButton rkType='square shadow' style={{width: size, height: size}}
             onPress={() => {
+              this.props.navigation.navigate('RentServiceMenu')
+            }}>
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.dashboard}
+            </RkText>
+            <RkText rkType='h3'>Rent Energy Service</RkText>
+          </RkButton>
+          <RkButton rkType='square shadow' style={{width: size, height: size}}
+            onPress={() => {
               this.props.navigation.navigate('Upgrade')
             }}>
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.theme}
@@ -95,9 +103,9 @@ export class Dashboard extends React.Component {
             onPress={() => {
               this.props.navigation.navigate('Articles4')
             }}>
-            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.article}
+            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.card}
             </RkText>
-            <RkText rkType='h3'>View Services</RkText>
+            <RkText rkType='h3'>My Orders</RkText>
           </RkButton>
 
           <RkButton rkType='square shadow' style={{width: size, height: size}}
@@ -109,14 +117,7 @@ export class Dashboard extends React.Component {
             <RkText rkType='h3'>Cart</RkText>
           </RkButton>
 
-          <RkButton rkType='square shadow' style={{width: size, height: size}}
-            onPress={() => {
-              this.props.navigation.navigate('Cart')
-            }}>
-            <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.dashboard}
-            </RkText>
-            <RkText rkType='h3'>Service Usage</RkText>
-          </RkButton>
+
           <View style={chartBlockStyles}>
               <DoughnutChart/>
           </View>

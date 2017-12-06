@@ -47,38 +47,38 @@ export class ScheduleService extends React.Component {
             <View>
 
             <RkText >Name : </RkText>
-            <RkTextInput rkType='rounded' placeholder='Sneha Kasetty'/>
+            <RkTextInput rkType='rounded' placeholder='Name'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Adress : </RkText>
-            <RkTextInput rkType='rounded' placeholder='San Jose'/>
+            <RkTextInput rkType='rounded' placeholder='Address'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Zip Code : </RkText>
-            <RkTextInput rkType='rounded' placeholder='95128'/>
+            <RkTextInput rkType='rounded' placeholder='Zip code'/>
 
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Phone : </RkText>
-            <RkTextInput rkType='rounded' placeholder='xxx-xxx-xxxx'/>
+            <RkTextInput rkType='rounded' placeholder='xxx-xxx-xxxx '/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Date : </RkText>
-            <RkTextInput rkType='rounded' placeholder='12/01/2017'/>
+            <RkTextInput rkType='rounded' placeholder='mm/dd/yyyy'/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Time : </RkText>
-            <RkTextInput rkType='rounded' placeholder='4:21'/>
+            <RkTextInput rkType='rounded' placeholder='00:00'/>
             </View>
           </View>
           <GradientButton style={styles.save} rkType='large' text='Schedule' onPress={() => {

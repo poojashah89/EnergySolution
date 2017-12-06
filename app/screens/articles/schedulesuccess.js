@@ -54,6 +54,9 @@ export class ScheduleSuccess extends React.Component {
             <RkText></RkText>
               <RkText rkType='h3' style={{marginLeft: 90}}>54673837384349</RkText>
               <View>
+
+              <RkText></RkText>
+              
               </View>
 
               <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('Dashboard')}>Go To Dashboard</RkButton>

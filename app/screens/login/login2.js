@@ -80,13 +80,13 @@ export class LoginV2 extends React.Component {
 
       if(res.obj.type == "Vendor"){
         //redirect to the customer dashboard page
-        StatusBar.setHidden(false, 'slide');
-        let toHome = NavigationActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({routeName: 'VendorDashboard'})]
-      });
-      this.props.navigation.dispatch(toHome)
-      }
+          StatusBar.setHidden(false, 'slide');
+          let toHome = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({routeName: 'VendorDashboard'})]
+        });
+        this.props.navigation.dispatch(toHome)
+        }
       }
     }).catch(error => {
       console.error(error);

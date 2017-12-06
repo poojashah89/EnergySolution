@@ -17,7 +17,7 @@ import {KittenTheme} from '../../config/theme';
 import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 import {FontIcons} from '../../assets/icons';
-
+import {Cart} from '../other/cart';
 const paddingValue = 8;
 
 export class Upgrade extends React.Component {
@@ -52,12 +52,14 @@ export class Upgrade extends React.Component {
             </RkText>
 
             <RkText rkType='h1' style={styles.header}>Free</RkText>
-            <RkText rkType='h2'>"9.99$"</RkText>
+            <RkText rkType='h2'>"0$"</RkText>
 
             <RkText rkType='h3'>Email Support</RkText>
             <RkText rkType='h3'>Limited Statistics</RkText>
             <RkText rkType='h3'>Scheduling Feature</RkText>
             <RkText rkType='h3'>Full Search</RkText>
+
+            <RkText rkType='h4'>Congratulations! You are using Free Version!</RkText>
             </RkButton>
         </View>
           <View style={styles.container}>
@@ -65,7 +67,7 @@ export class Upgrade extends React.Component {
             rkType='square shadow'
             style={{width: size, height: 320}}
             onPress={() => {
-              this.props.navigation.goBack()
+              this.props.navigation.navigate('Cart')
             }}>
 
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.card}

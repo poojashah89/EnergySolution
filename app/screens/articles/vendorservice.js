@@ -45,19 +45,29 @@ export class VendorService extends React.Component {
       <ScrollView style={styles.container}>
         <View style={styles.section}>
           <View style={[styles.row, styles.heading]}>
-            <RkText rkType='primary header6'>ENERGY RESOURCES</RkText>
+            <RkText rkType='primary header3'>SERVICE               DELETE </RkText>
           </View>
           <View style={styles.row}>
             <TouchableOpacity style={styles.rowButton}>
-              <RkText rkType='header6'>HVAC</RkText>
-              <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('VendorDashboard')}>Remove</RkButton>
-
+              <RkText rkType='header4'>1. HVAC V1                 <RkButton> DELETE</RkButton> </RkText>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.row}>
+            <TouchableOpacity style={styles.rowButton}>
+              <RkText rkType='header4'>2. HVAC V2                 <RkButton> DELETE</RkButton> </RkText>
             </TouchableOpacity>
           </View>
         </View>
-        <GradientButton style={styles.save} rkType='large' text='Add Service' onPress={() => {
-          this.props.navigation.navigate('VendorDashboard')
-        }}/>
+
+        <View style={styles.content}>
+          <View>
+            <GradientButton style={styles.save} rkType='large' text='Add Service' onPress={() => {
+              this.props.navigation.navigate('VendorDashboard')
+            }}/>
+
+          </View>
+        </View>
+
       </ScrollView>
     )
   }

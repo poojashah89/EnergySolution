@@ -27,13 +27,12 @@ import {GradientButton} from '../../components/';
 import {Walkthrough} from '../../components/walkthrough';
 import {Walkthrough1} from '../walkthroughs/walkthrough1';
 import {Walkthrough2} from '../walkthroughs/walkthrough2';
-import {LoginV2} from '../login/login2';
+import {SignUp} from '../login/signUp';
 //import {PaginationIndicator} from '../../components';
 import {Articles4} from '../articles/articles4';
 import {Upgrade} from '../theme/upgrade';
 import {Cart} from '../other/cart';
 import {data} from '../../data';
-
 let moment = require('moment');
 
 import {FontAwesome} from '../../assets/icons';
@@ -62,7 +61,8 @@ export class LoginMenu extends React.Component {
   render() {
     return (
      //<CategoryMenu navigation={this.props.navigation} items={Routes.LoginRoutes}/>
-     this.props.navigation.navigate('LoginV2')
+     <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('SignUp',{id: 0})}>Logout</RkButton>
+
     )
   }
 }
@@ -406,9 +406,7 @@ export class AdminDashboardMenu extends React.Component {
       <CategoryMenu navigation={this.props.navigation} items={Routes.DashboardRoutes}/>
     )
   }
-
-
-    /*static navigationOptions = {
+static navigationOptions = {
       title: 'Admin Dashboard'.toUpperCase()
     };
 
@@ -472,7 +470,7 @@ export class AdminDashboardMenu extends React.Component {
           </View>
         </ScrollView>
       )
-    }*/
+    }
 }
 
 export class VendorDashboardMenu extends React.Component {
@@ -677,44 +675,6 @@ export class WalkthroughMenu extends React.Component {
   Walkthrough
   */
 
-  static navigationOptions = {
-    header: null,
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {index: 0};
-  }
-
-  changeIndex(index) {
-    this.setState({index})
-  }
-
-  render() {
-    return (
-      <View style={styles.screen}>
-        <Walkthrough onChanged={(index) => this.changeIndex(index)}>
-          <Walkthrough1/>
-          <Walkthrough2/>
-        </Walkthrough>
-        <PaginationIndicator length={2} current={this.state.index}/>
-        <GradientButton
-          rkType='large'
-          style={styles.button}
-          text="GET STARTED"
-          onPress={() => {
-            //this.props.navigation.goBack()
-            //this.props.navigation.navigate('Dashboard')
-            StatusBar.setHidden(false, 'slide');
-            let toHome = NavigationActions.reset({
-              index: 0,
-              actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
-            });
-            this.props.navigation.dispatch(toHome)
-          }}/>
-      </View>
-    )
-  }
 }
 export class EcommerceMenu extends React.Component {
   static navigationOptions = {

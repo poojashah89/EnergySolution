@@ -441,17 +441,23 @@ export const MainRoutes = [
 
 
 export const SideMenuRoutes = [
-  {
+  {/*
+
       id: 'WalkthroughMenu',
       title: 'About App',
       icon: FontIcons.mobile,
       screen: Screens.WalkthroughMenu,
       children: [{
-        id: 'Walkthrough',
+        id: 'Settings',
         title: 'Walkthrough',
-        screen: Screens.WalkthroughScreen,
+        screen: Screens.Settings,
         children: []
-      }]
+      }] */
+      id: 'WalkthroughMenu',
+      title: 'About App',
+      screen: Screens.WalkthroughMenu,
+      icon: FontIcons.other,
+      children: []
   },
     {
       id: 'LoginMenu',

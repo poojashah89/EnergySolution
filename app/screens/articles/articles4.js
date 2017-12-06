@@ -85,11 +85,14 @@ export class Articles4 extends React.Component {
         obj= JSON.parse(JSON.stringify(response));
         var bodyInit = JSON.parse(obj._bodyInit);
         this.obj = bodyInit.obj;
+        for (i = 0; i < this.obj.length; i++) {
+          this.obj[i].photo = 'https://raw.githubusercontent.com/snehakasetty224/images/master/'+this.obj[i].header+'.png';
+        }
         var item = {};
         item = JSON.stringify(this.obj);
         console.log("response1:"+ JSON.stringify(item));
         console.log("response obj"+item.id);
-
+        console.log("response obj1 "+this.obj[0].photo);
         //5. set the array from the response to the list
         this.setState({
           //isLoading: false,
@@ -113,12 +116,12 @@ export class Articles4 extends React.Component {
         activeOpacity={0.8}
         onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
         <RkCard rkType='horizontal' style={styles.card}>
-          <Image rkCardImg source={{uri: this.pic}}/>
+          <Image rkCardImg source={{ uri: info.item.photo}}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
-            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id})}>Uninstalled</RkButton>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id})}>{info.item.status}</RkButton>
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>

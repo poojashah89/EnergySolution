@@ -57,7 +57,8 @@ export class RentService extends React.Component {
   }
 
   rentService = (serviceid, squarefeet, duration, warranty, price) => {
-      fetch('https://cmpe235-finalproject.herokuapp.com/v1/rent', {
+      console.log('in rent service')
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/cart/add', {
          method: 'POST',
          headers: {
          'Accept': 'application/json',
@@ -69,9 +70,10 @@ export class RentService extends React.Component {
          squarefeet: squarefeet,
          duration: duration,
          warranty: warranty,
-         price: price
+         price: this.state.squarefeet*this.state.duration*2
          })
       }).then(response => {
+        console.log('in result')
         var res = JSON.parse(JSON.stringify(response));
         if(res.status==201){
           //redirect to the rent page
@@ -109,19 +111,19 @@ export class RentService extends React.Component {
           <View rkCardContent>
             <View>
               <RkText > Duration : </RkText>
-              <RkTextInput rkType='rounded' placeholder='Duration' onChangeText = {this.handleDuration}/>
+              <RkTextInput rkType='rounded' placeholder='No of days' onChangeText = {this.handleDuration}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
               <RkText > Warranty : </RkText>
-              <RkTextInput rkType='rounded' placeholder='Warranty' onChangeText = {this.handleWarranty}/>
+              <RkTextInput rkType='rounded' placeholder='Yes/No' onChangeText = {this.handleWarranty}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
-              <RkText > Price : </RkText>
-              <RkTextInput rkType='rounded' placeholder='Price' onChangeText = {this.handlePrice}/>
+              <RkText> Price ($50) </RkText>
+              <RkTextInput rkType='rounded' placeholder='Price' value={(this.state.squarefeet*this.state.duration*2).toString()} onChangeText = {this.handlePrice}/>
             </View>
           </View>
           <GradientButton style={styles.save} rkType='large' text='Add to Cart' onPress={

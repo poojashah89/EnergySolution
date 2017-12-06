@@ -663,7 +663,7 @@ export class DashboardMenu extends React.Component {
   }
 }
 export class WalkthroughMenu extends React.Component {
-  /*static navigationOptions = {
+  static navigationOptions = {
     title: 'Walkthrough'.toUpperCase()
   };
   render() {
@@ -673,9 +673,9 @@ export class WalkthroughMenu extends React.Component {
     )
   }
   Walkthrough
-  */
 
 }
+
 export class EcommerceMenu extends React.Component {
   static navigationOptions = {
     title: 'Ecommerce'.toUpperCase()

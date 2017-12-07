@@ -75,7 +75,7 @@ export class Articles4 extends React.Component {
   //4. write the function to get the list from backend
   componentDidMount (){
       console.log("Inside getServices");
-      fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/rent', {
          method: 'GET'
       })
       .then(response => {
@@ -86,7 +86,7 @@ export class Articles4 extends React.Component {
         var bodyInit = JSON.parse(obj._bodyInit);
         this.obj = bodyInit.obj;
         for (i = 0; i < this.obj.length; i++) {
-          this.obj[i].photo = 'https://raw.githubusercontent.com/snehakasetty224/images/master/'+this.obj[i].header+'.png';
+          this.obj[i].photo = 'https://raw.githubusercontent.com/snehakasetty224/images/master/'+this.obj[i].service_name+'.png';
         }
         var item = {};
         item = JSON.stringify(this.obj);
@@ -114,14 +114,14 @@ export class Articles4 extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id,name: info.item.header})}>
+        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.service_id,name: info.item.service_name})}>
         <RkCard rkType='horizontal' style={styles.card}>
           <Image rkCardImg source={{ uri: info.item.photo}}/>
 
           <View rkCardContent>
-            <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
+            <RkText numberOfLines={1} rkType='header6'>{info.item.service_name}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
-            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id,name: info.item.header})}>{info.item.status}</RkButton>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.service_id,name: info.item.service_name})}>{info.item.status}</RkButton>
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>

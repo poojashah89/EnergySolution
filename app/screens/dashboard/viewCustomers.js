@@ -107,7 +107,7 @@ componentDidMount(){
 
 render() {
   return (
-    <View>
+    <View style={{flex:1, backgroundColor: '#f3f3f3'}}>
       <FlatList
       //6. Set the data for the flat list
         data={this.state.serviceList}

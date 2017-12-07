@@ -35,6 +35,33 @@ export class ScheduleService extends React.Component {
 
     this.pic = 'https://readwrite.com/wp-content/uploads/energy-effeciency-e1472285339838.jpg';
     this.data = data.getArticle(id);
+    this.state = {
+      name: '',
+      address: '',
+      zipcode: '',
+      phone: '',
+      date:'',
+      time:'',
+   }
+  }
+
+  handleName = (text) => {
+     this.setState({ name: text })
+  }
+  handleAddress = (text) => {
+     this.setState({ email: text })
+  }
+  handleZipcode = (text) => {
+     this.setState({ password: text })
+  }
+  handlePhone = (text) => {
+     this.setState({ type: text })
+  }
+  handleDate = (text) => {
+     this.setState({ type: text })
+  }
+  handleTime = (text) => {
+     this.setState({ type: text })
   }
 
   render() {

@@ -132,9 +132,7 @@ export class Cart extends React.Component {
             keyExtractor={(item, index) => item._id}
             style={styles.container}/>
         </View>
-        <TouchableOpacity style={styles.rowButton}>
-           <RkText >Total:                                           100.00 $</RkText>
-        </TouchableOpacity>
+        
         <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('PaymentType')}>Lease Service</RkButton>
     </View>
     </ScrollView>

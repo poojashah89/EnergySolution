@@ -32,20 +32,32 @@ export class UserCountChart extends RkComponent {
           x: 1,
           y: 240,
           title: '1',
-          name: 'Vendor',
+          name: 'Vender',
           color: RkTheme.current.colors.charts.doughnut[0],
-        },
-        {
-          x: 2,
-          y: 270,
-          title: '1',
-          name: 'Admin',
-          color: RkTheme.current.colors.charts.doughnut[1],
-        },
+        },  {
+            x: 2,
+            y: 1,
+            title: 'Vendor',
+            name: 'Vendor',
+            color: RkTheme.current.colors.charts.doughnut[0],
+          },
         {
           x: 3,
-          y: 170,
-          title: '1',
+          y: 12,
+          title: 'Admin',
+          name: 'Admin',
+          color: RkTheme.current.colors.charts.doughnut[1],
+        },  {
+            x: 4,
+            y: 270,
+            title: '123',
+            name: '1',
+            color: RkTheme.current.colors.charts.doughnut[1],
+          },
+        {
+          x: 5,
+          y: 6,
+          title: 'Customer',
           name: 'Customer',
           color: RkTheme.current.colors.charts.doughnut[2],
         }
@@ -53,6 +65,35 @@ export class UserCountChart extends RkComponent {
     }
   }
 
+  getServices = () => {
+      console.log("Inside getServices");
+      fetch('https://cmpe235-finalproject.herokuapp.com/v1/user.count', {
+         method: 'GET'
+      })
+      .then(response => {
+        console.log("response:"+JSON.stringify(response));
+        var obj= {};
+        //parse the response - get response from response._bodyInit
+        obj= JSON.parse(JSON.stringify(response));
+        var bodyInit = JSON.parse(obj._bodyInit);
+        this.obj = bodyInit.obj;
+
+        var item = {};
+        item = JSON.stringify(this.obj);
+        console.log("response1:"+ JSON.stringify(item));
+        console.log("customerrentmenu response obj"+item.id);
+        console.log("response obj1 "+this.obj[0].photo);
+        //5. set the array from the response to the list
+        this.setState({
+          //isLoading: false,
+          serviceList : this.obj
+        });
+
+      })
+      .catch((error) => {
+         console.error(error);
+      });
+   }
   computeColors() {
     return this.state.data.map(i => i.color)
   }

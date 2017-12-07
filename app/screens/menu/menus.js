@@ -190,7 +190,7 @@ export class ArticleMenu extends React.Component {
 
 export class RentServiceMenu extends React.Component {
   static navigationOptions = {
-    title: 'Rent Service Menu'.toUpperCase()
+    title: 'Rent Service'.toUpperCase()
   };
 
   constructor(props) {
@@ -225,11 +225,12 @@ export class RentServiceMenu extends React.Component {
     let info = {};
     info.item = this.data[0];
     return (
+      <View style={{flex:1, backgroundColor: '#f3f3f3'}}>
       <FlatList data={this.data}
                 renderItem={this.renderItem}
                 keyExtractor={this._keyExtractor}
                 style={styles.root}/>
-
+      </View>
     )
   }
 }
@@ -247,8 +248,7 @@ export class AdminEnergyServiceMenu extends React.Component {
 
   constructor(props) {
     super(props);
-    //1. call the function to get the list of items
-    this.getServices();
+
     this.pic = 'https://www.servicechampions.net/wp-content/uploads/2015/03/air-ducts-energy-star.jpg';//'https://static1.squarespace.com/static/58588d72e6f2e1e1d54aa8e4/t/5876d0da03596ef4262a5362/1484181726567/Icon+Clean+Tech+darkgreen.png';
     //2.Define the array to store the list
     this.state = {

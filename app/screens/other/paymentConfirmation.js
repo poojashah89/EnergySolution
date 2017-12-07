@@ -4,7 +4,8 @@ import {
   ScrollView,
   View,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  StatusBar
 } from 'react-native';
 import {
   RkButton,
@@ -17,6 +18,7 @@ import {
   FindFriends
 } from '../../components';
 import {FontAwesome} from '../../assets/icons';
+import {NavigationActions} from 'react-navigation';
 
 export class PaymentConfirm extends React.Component {
   static navigationOptions = {
@@ -53,7 +55,15 @@ export class PaymentConfirm extends React.Component {
             <RkText></RkText>
               <RkText rkType='h3' style={{marginLeft: 120}}>54673837384349</RkText>
         </View>
-        <RkButton style={{marginLeft: 120, width:150}} onPress={() => this.props.navigation.navigate('Dashboard')}>Go To Dashboard</RkButton>
+        <RkButton style={{marginLeft: 120, width:150}} onPress=
+          {()=>
+          {StatusBar.setHidden(false, 'slide');
+        let toHome = NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({routeName: 'Dashboard'})]
+      });
+      this.props.navigation.dispatch(toHome)}}
+    >Go To Dashboard</RkButton>
       </ScrollView>
     )
   }

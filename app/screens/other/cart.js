@@ -62,7 +62,10 @@ export class Cart extends React.Component {
       var item = {};
       item = JSON.stringify(this.obj);
       console.log("item:"+ JSON.stringify(item));
-
+      this.setState({
+        //isLoading: false,
+        cartList : this.obj
+      });
       /*for (i = 0; i < this.obj.length; i++) {
           console.log("sqft" + this.obj[i].squarefeet)
           var serviceid = this.obj[i]._id
@@ -119,7 +122,7 @@ export class Cart extends React.Component {
       <ScrollView style={styles.container}>
       <View>
         <View style={[styles.row, styles.heading]}>
-          <RkText rkType='primary header6'>CART ITEMS     PRICE</RkText>
+          <RkText rkType='primary header6'>CART ITEMS                       PRICE</RkText>
         </View>
         <View>
           <FlatList

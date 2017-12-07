@@ -30,6 +30,9 @@ export class ScheduleService extends React.Component {
     let {params} = this.props.navigation.state;
     console.log("Schedule service:"+JSON.stringify(this.props.navigation.state));
     let id = params ? params.id : 1;
+    let name = params ? params.name : 1;
+    console.log("schedule params:"+params);
+
     this.pic = 'https://readwrite.com/wp-content/uploads/energy-effeciency-e1472285339838.jpg';
     this.data = data.getArticle(id);
   }

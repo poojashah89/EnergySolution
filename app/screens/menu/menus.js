@@ -151,14 +151,14 @@ export class ArticleMenu extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
+        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id,name: info.item.header})}>
         <RkCard rkType='horizontal' style={styles.card}>
           <Image rkCardImg source={{uri: this.pic}}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
-            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id})}>Uninstalled</RkButton>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id,name: info.item.header})}>Uninstalled</RkButton>
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>
@@ -426,7 +426,7 @@ export class AdminEnergyServiceList extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
+        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id,name: info.item.header})}>
         <RkCard rkType='horizontal' style={styles.card}>
 
           <View rkCardContent>

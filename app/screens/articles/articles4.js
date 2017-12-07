@@ -61,8 +61,8 @@ export class Articles4 extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log("articles4");
     //1. call the function to get the list of items
-    this.getServices();
     this.pic = 'https://www.servicechampions.net/wp-content/uploads/2015/03/air-ducts-energy-star.jpg';//'https://static1.squarespace.com/static/58588d72e6f2e1e1d54aa8e4/t/5876d0da03596ef4262a5362/1484181726567/Icon+Clean+Tech+darkgreen.png';
     //2.Define the array to store the list
     this.state = {
@@ -73,7 +73,7 @@ export class Articles4 extends React.Component {
   }
 
   //4. write the function to get the list from backend
-  getServices = () => {
+  componentDidMount (){
       console.log("Inside getServices");
       fetch('https://cmpe235-finalproject.herokuapp.com/v1/service', {
          method: 'GET'
@@ -114,14 +114,14 @@ export class Articles4 extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id})}>
+        onPress={() => this.props.navigation.navigate('ScheduleService', {id: info.item.id,name: info.item.header})}>
         <RkCard rkType='horizontal' style={styles.card}>
           <Image rkCardImg source={{ uri: info.item.photo}}/>
 
           <View rkCardContent>
             <RkText numberOfLines={1} rkType='header6'>{info.item.header}</RkText>
             <RkText rkType='secondary6 hintColor'></RkText>
-            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id})}>{info.item.status}</RkButton>
+            <RkButton style={{marginLeft: 85, width:150}} onPress={() => this.props.navigation.navigate('ScheduleService',{id: info.item.id,name: info.item.header})}>{info.item.status}</RkButton>
             <RkText style={styles.post} numberOfLines={2} rkType='secondary1'></RkText>
           </View>
           <View rkCardFooter>

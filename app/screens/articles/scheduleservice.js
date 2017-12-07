@@ -18,7 +18,7 @@ import {
   SocialBar,
   GradientButton} from '../../components';
 let moment = require('moment');
-
+import auth from '../../utils/authUtils';
 
 export class ScheduleService extends React.Component {
   static navigationOptions = {
@@ -29,12 +29,12 @@ export class ScheduleService extends React.Component {
     super(props);
     let {params} = this.props.navigation.state;
     console.log("Schedule service:"+JSON.stringify(this.props.navigation.state));
-    let id = params ? params.id : 1;
-    let name = params ? params.name : 1;
+    this.sid = params ? params.id : 1;
+    this.sname = params ? params.name : 1;
     console.log("schedule params:"+params);
 
     this.pic = 'https://readwrite.com/wp-content/uploads/energy-effeciency-e1472285339838.jpg';
-    this.data = data.getArticle(id);
+    this.data = data.getArticle(this.sid);
     this.state = {
       name: '',
       address: '',
@@ -49,20 +49,54 @@ export class ScheduleService extends React.Component {
      this.setState({ name: text })
   }
   handleAddress = (text) => {
-     this.setState({ email: text })
+     this.setState({ address: text })
   }
   handleZipcode = (text) => {
-     this.setState({ password: text })
+     this.setState({ zipcode: text })
   }
   handlePhone = (text) => {
-     this.setState({ type: text })
+     this.setState({ phone: text })
   }
   handleDate = (text) => {
-     this.setState({ type: text })
+     this.setState({ date: text })
   }
   handleTime = (text) => {
-     this.setState({ type: text })
+     this.setState({ time: text })
   }
+
+  //function for register http request
+    scheduleservice = (name, address, zipcode, phone, date, time) => {
+        fetch('https://cmpe235-finalproject.herokuapp.com/v1/schedule', {
+           method: 'POST',
+           headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json',
+           },
+           body: JSON.stringify({
+             token: auth.getToken(),
+             name: name,
+           address: address,
+           zipcode: zipcode,
+           phone: phone,
+           date: date,
+           time: time,
+           service_id: this.sid,
+           service_name: this.sname
+           })
+        }).then(response => {
+          var obj= {};
+          obj= response._bodyInit;
+          var res = JSON.parse(obj);
+          console.log("responsesss:"+JSON.stringify(response._bodyInit));
+          if(res.success==1){
+            //redirect to the login page
+            this.props.navigation.navigate('ScheduleSuccess')
+          }
+
+      }).catch(error => {
+        console.error(error);
+      });
+     }
 
   render() {
     return (
@@ -79,43 +113,44 @@ export class ScheduleService extends React.Component {
             <View>
 
             <RkText >Name : </RkText>
-            <RkTextInput rkType='rounded' placeholder='Name'/>
+            <RkTextInput rkType='rounded' placeholder='Name' onChangeText={this.handleName}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Adress : </RkText>
-            <RkTextInput rkType='rounded' placeholder='Address'/>
+            <RkTextInput rkType='rounded' placeholder='Address' onChangeText={this.handleAddress}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Zip Code : </RkText>
-            <RkTextInput rkType='rounded' placeholder='Zip code'/>
+            <RkTextInput rkType='rounded' placeholder='Zip code' onChangeText={this.handleZipcode}/>
 
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Phone : </RkText>
-            <RkTextInput rkType='rounded' placeholder='xxx-xxx-xxxx '/>
+            <RkTextInput rkType='rounded' placeholder='xxx-xxx-xxxx' onChangeText={this.handlePhone}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Date : </RkText>
-            <RkTextInput rkType='rounded' placeholder='mm/dd/yyyy'/>
+            <RkTextInput rkType='rounded' placeholder='mm/dd/yyyy' onChangeText={this.handleDate}/>
             </View>
           </View>
           <View rkCardContent>
             <View>
             <RkText >Time : </RkText>
-            <RkTextInput rkType='rounded' placeholder='00:00'/>
+            <RkTextInput rkType='rounded' placeholder='00:00' onChangeText={this.handleTime}/>
             </View>
           </View>
-          <GradientButton style={styles.save} rkType='large' text='Schedule' onPress={() => {
-            this.props.navigation.navigate('ScheduleSuccess')
-          }}/>
+          <GradientButton style={styles.save} rkType='large' text='Schedule' onPress={
+            //this.props.navigation.navigate('ScheduleSuccess')
+            () => this.scheduleservice(this.state.name, this.state.address, this.state.zipcode, this.state.phone, this.state.date, this.state.time)
+          }/>
         </RkCard>
       </ScrollView>
     )

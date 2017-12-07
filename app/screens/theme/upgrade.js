@@ -18,6 +18,7 @@ import {GradientButton} from '../../components/';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 import {FontIcons} from '../../assets/icons';
 import {Cart} from '../other/cart';
+import {PaymentType} from '../other/paymenttype';
 const paddingValue = 8;
 
 export class Upgrade extends React.Component {
@@ -67,7 +68,7 @@ export class Upgrade extends React.Component {
             rkType='square shadow'
             style={{width: size, height: 320}}
             onPress={() => {
-              this.props.navigation.navigate('Cart')
+              this.props.navigation.navigate('PaymentType')
             }}>
 
             <RkText style={styles.icon} rkType='primary moon menuIcon'>{FontIcons.card}

@@ -2,8 +2,7 @@ import React from 'react';
 import {
   View,
   Image,
-  Dimensions,
-  FlatList
+  Dimensions
 } from 'react-native';
 import {
   RkComponent,
@@ -28,40 +27,34 @@ export class UserCountChart extends RkComponent {
     this.fontSize = 40;
     this.state = {
       selected: 0,
-      userList : []
+      data: [
+        {
+          x: 1,
+          y: 240,
+          title: '1',
+          name: 'Vendor',
+          color: RkTheme.current.colors.charts.doughnut[0],
+        },
+        {
+          x: 2,
+          y: 270,
+          title: '1',
+          name: 'Admin',
+          color: RkTheme.current.colors.charts.doughnut[1],
+        },
+        {
+          x: 3,
+          y: 170,
+          title: '1',
+          name: 'Customer',
+          color: RkTheme.current.colors.charts.doughnut[2],
+        }
+      ]
     }
-    this.getUsercount();
-    this.renderItem = this._renderItem.bind(this);
   }
 
-  getUsercount = () => {
-      console.log('in user count')
-      fetch('https://cmpe235-finalproject.herokuapp.com/v1/user/count', {
-         method: 'GET',
-         headers: {
-         'Accept': 'application/json',
-         'Content-Type': 'application/json',
-         }
-      }).then(response => {
-        var obj1= JSON.parse(JSON.stringify(response));
-        var bodyInit1 = JSON.parse(obj1._bodyInit);
-        console.log("usercountbodyInit:"+ bodyInit1);
-        this.obj1 = bodyInit1.obj;
-        var item = {};
-        item = JSON.stringify(this.obj1);
-
-        this.setState({
-          //isLoading: false,
-          userList : this.obj1
-        });
-    }).catch(error => {
-      console.error(error);
-    });
-   }
-
-
   computeColors() {
-    return this.state.userList.map(i => i.color)
+    return this.state.data.map(i => i.color)
   }
 
   handlePress(e, props) {
@@ -70,66 +63,52 @@ export class UserCountChart extends RkComponent {
     })
   }
 
-
-  _renderItem(info) {
-      return (
-    //if (this.state.isLoading) {
-    <View>
-      <RkText rkType='header4'>USER COUNT</RkText>
-      <View style={{alignSelf: 'center'}}>
-
-        <Svg width={scale(this.size)} height={scale(this.size)}>
-          <VictoryPie
-            labels={[]}
-            width={scale(this.size)} height={scale(this.size)}
-            colorScale={this.computeColors()}
-            data={this.state.userList}
-            standalone={false}
-            padding={scale(25)}
-            innerRadius={scale(70)}
-            events={[{
-              target: "data",
-              eventHandlers: {
-                onPressIn: (evt, props) => this.handlePress(evt, props)
-              }
-            }]}>
-          </VictoryPie>
-          <SvgText
-            textAnchor="middle" verticalAnchor="middle"
-            x={scale(this.size / 2)}
-            y={scale(this.size / 2 - this.fontSize / 2)}
-            dy={scale(this.fontSize * -0.25)}
-            height={scale(this.fontSize)}
-            fontSize={scale(this.fontSize)}
-            fontFamily={RkTheme.current.fonts.family.regular}
-            stroke={RkTheme.current.colors.text.base}
-            fill={RkTheme.current.colors.text.base}>
-            {this.state.userList[this.state.selected].title}
-          </SvgText>
-        </Svg>
-      </View>
-      <View style={styles.legendContainer}>
-        {this.state.userList.map(item => {
-          return (
-            <View key={item.name} style={styles.legendItem}>
-              <View style={[styles.itemBadge, {backgroundColor: item.color}]}/>
-              <RkText rkType="primary3">{item.name}</RkText>
-            </View>
-          )
-        })}
-      </View>
-    </View>)
-  }
-
-
   render() {
     return (
-
-      <FlatList
-      //6. Set the data for the flat list
-        data={this.state.userList}
-        renderItem={this.renderItem}
-        style={styles.container}/>
+      <View>
+        <RkText rkType='header4'>USERS</RkText>
+        <View style={{alignSelf: 'center'}}>
+          <Svg width={scale(this.size)} height={scale(this.size)}>
+            <VictoryPie
+              labels={[]}
+              width={scale(this.size)} height={scale(this.size)}
+              colorScale={this.computeColors()}
+              data={this.state.data}
+              standalone={false}
+              padding={scale(25)}
+              innerRadius={scale(70)}
+              events={[{
+                target: "data",
+                eventHandlers: {
+                  onPressIn: (evt, props) => this.handlePress(evt, props)
+                }
+              }]}>
+            </VictoryPie>
+            <SvgText
+              textAnchor="middle" verticalAnchor="middle"
+              x={scale(this.size / 2)}
+              y={scale(this.size / 2 - this.fontSize / 2)}
+              dy={scale(this.fontSize * -0.25)}
+              height={scale(this.fontSize)}
+              fontSize={scale(this.fontSize)}
+              fontFamily={RkTheme.current.fonts.family.regular}
+              stroke={RkTheme.current.colors.text.base}
+              fill={RkTheme.current.colors.text.base}>
+              {this.state.data[this.state.selected].title}
+            </SvgText>
+          </Svg>
+        </View>
+        <View style={styles.legendContainer}>
+          {this.state.data.map(item => {
+            return (
+              <View key={item.name} style={styles.legendItem}>
+                <View style={[styles.itemBadge, {backgroundColor: item.color}]}/>
+                <RkText rkType="primary3">{item.name}</RkText>
+              </View>
+            )
+          })}
+        </View>
+      </View>
     )
   }
 }

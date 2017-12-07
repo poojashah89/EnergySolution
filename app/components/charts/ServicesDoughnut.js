@@ -1,150 +1,119 @@
 import React from 'react';
 import {
   View,
-  Image,
-  Dimensions,
-  Platform,
-  Text
+  Dimensions
 } from 'react-native';
 import {
   RkComponent,
   RkText,
-  RkTheme,
-  RkStyleSheet
+  RkTheme
 } from 'react-native-ui-kitten';
 
 import {
-  VictoryPie,VictoryBar
+  VictoryChart,
+  VictoryAxis,
+  VictoryArea,
 } from "victory-native";
-
-import {Svg, Text as SvgText} from 'react-native-svg';
-import {scale} from '../../utils/scale';
 
 export class ServicesDoughnutChart extends RkComponent {
 
   constructor(props) {
     super(props);
-    this.fontSize = 40;
-    this.size = 300;
-    this.state = {
-      selected: 0,
-      data: [
-        {
-          x: 1,
-          y: 20,
-          color: RkTheme.current.colors.charts.doughnut[0],
-          name: 'IoT',
-        },
-        {
-          x: 2,
-          y: 270,
-          color: RkTheme.current.colors.charts.doughnut[1],
-          name: 'HVAC',
-        },
-        {
-          x: 3,
-          y: 270,
-          color: RkTheme.current.colors.charts.doughnut[2],
-          name: 'Cold Water',
-        },{
-          x: 4,
-          y: 270,
-          color: RkTheme.current.colors.charts.doughnut[3],
-          name: 'Light Energy Services',
-        }
+    this.colors = RkTheme.current.colors.charts.followersArea;
+    this.data = [
+      [
+        {x: 1, y: 1.0, key: 0},
+        {x: 2, y: 1.5, key: 1},
+        {x: 3, y: 1.0, key: 2},
+        {x: 4, y: 0.5, key: 3},
+        {x: 5, y: 1.0, key: 4},
+        {x: 6, y: 2.0, key: 5},
+        {x: 7, y: 2.5, key: 6}
+      ],
+      [
+        {x: 1, y: 1.5, key: 0},
+        {x: 2, y: 2.0, key: 1},
+        {x: 3, y: 1.5, key: 2},
+        {x: 4, y: 0.8, key: 3},
+        {x: 5, y: 1.5, key: 4},
+        {x: 6, y: 2.6, key: 5},
+        {x: 7, y: 3.3, key: 6}
+      ],
+      [
+        {x: 1, y: 2.0, key: 0},
+        {x: 2, y: 2.5, key: 1},
+        {x: 3, y: 2.0, key: 2},
+        {x: 4, y: 1.1, key: 3},
+        {x: 5, y: 2.0, key: 4},
+        {x: 6, y: 3.2, key: 5},
+        {x: 7, y: 4.0, key: 6}
+      ],
+      [
+        {x: 1, y: 2.5, key: 0},
+        {x: 2, y: 3.0, key: 1},
+        {x: 3, y: 2.5, key: 2},
+        {x: 4, y: 1.4, key: 3},
+        {x: 5, y: 2.5, key: 4},
+        {x: 6, y: 3.7, key: 5},
+        {x: 7, y: 4.7, key: 6}
       ]
-    }
+    ]
   }
 
-  computeColors() {
-    return this.state.data.map(i => i.color)
-  }
-
-  handlePress(e, props) {
-    this.setState({
-      selected: props.index
-    })
-  }
-
-  changeScroll(scrollEnabled) {
-    this.setState({ scrollEnabled });
+  componentWillMount() {
+    this.size = Dimensions.get('window').width;
   }
 
   render() {
     return (
-    <View>
-        <RkText rkType='header4'>TOTAL SERVICES</RkText>
-        <View style={{alignSelf: 'center'}}>
-          <Svg width={scale(this.size)} height={scale(this.size)}>
-            <VictoryBar
-              labels={[]}
-              width={scale(this.size)} height={scale(this.size)}
-              colorScale={this.computeColors()}
-              data={this.state.data}
-              standalone={false}
-              padding={scale(25)}
-              innerRadius={scale(70)}
-              marginLeft={scale(100)}
-              marginTop={scale(150)}
-              events={[{
-                target: "data",
-                eventHandlers: {
-                  onPressIn: (evt, props) => this.handlePress(evt, props)
-                }
-              }]}>
-            </VictoryBar>
-            <SvgText
-              textAnchor="middle" verticalAnchor="middle"
-              x={scale(this.size / 2)}
-              y={scale(this.size / 2 - this.fontSize / 2)}
-              dy={scale(this.fontSize * -0.25)}
-              height={scale(this.fontSize)}
-              fontSize={scale(this.fontSize)}
-              fontFamily={RkTheme.current.fonts.family.regular}
-              stroke={RkTheme.current.colors.text.base}
-              fill={RkTheme.current.colors.text.base}>
-              {this.state.data[this.state.selected].title}
-            </SvgText>
-          </Svg>
-        </View>
-        <View style={styles.legendContainer}>
-          {this.state.data.map(item => {
+      <View>
+        <RkText rkType='header4'>SERVICES USED</RkText>
+        <VictoryChart padding={{top: 20, left: 40, right: 15, bottom: 40}} width={this.size - 60}>
+          <VictoryAxis
+            tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}
+            style={{
+              axis: {stroke: "transparent"},
+              tickLabels: {
+                fontSize: 14,
+                stroke: RkTheme.current.colors.text.secondary,
+                fill: RkTheme.current.colors.text.secondary,
+                fontFamily: RkTheme.current.fonts.family.regular,
+                strokeWidth: 0.5
+              }
+            }}
+          />
+          <VictoryAxis
+            dependentAxis
+            tickValues={['10%', '20%', '30%', '40%', '50%','60%','70%','80%','90%','100%']}
+            style={{
+              axis: {stroke: "transparent"},
+              grid: {stroke: RkTheme.current.colors.disabled, strokeWidth: 0.5},
+              tickLabels: {
+                fontSize: 14,
+                stroke: RkTheme.current.colors.text.secondary,
+                fill: RkTheme.current.colors.text.secondary,
+                fontFamily: RkTheme.current.fonts.family.regular,
+                strokeWidth: 0.5
+              }
+            }}
+          />
+          {this.data.reverse().map((a, i) => {
             return (
-              <View key={item.name} style={styles.legendItem}>
-                <View style={[styles.itemBadge, {backgroundColor: item.color}]}/>
-                <RkText rkType="primary3">{item.name}</RkText>
-              </View>
+              <VictoryArea
+                key={i}
+                interpolation="natural"
+                style={{
+                  data: {
+                    fill: this.colors[i],
+                    stroke: this.colors[i],
+                  }
+                }}
+                data={a}
+              />
             )
           })}
-        </View>
+        </VictoryChart>
       </View>
     )
   }
 }
-
-let styles = RkStyleSheet.create(theme => ({
-  chartstyle: {
-    alignSelf: 'auto',
-  },
-  legendContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center'
-  },
-  legendItem: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  itemBadge: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    marginRight: 5
-  },text: {
-    fontSize: 18,
-    fontFamily: (Platform.OS === "ios") ? "Menlo" : "monospace",
-    fontWeight: "bold",
-    marginTop: 10,
-    marginBottom: 30
-}
-}));

@@ -49,15 +49,15 @@ export class Cart extends React.Component {
        'Content-Type': 'application/json',
        },
        body: JSON.stringify({
-       token: auth.getToken(),
-       id: auth.getUserId()
+         token: auth.getToken(),
+         id: auth.getUserId()
        })
     }).then(response => {
-      console.log("response:"+JSON.stringify(response));
+      console.log("cart response:"+JSON.stringify(response));
       var obj= {};
       obj= JSON.parse(JSON.stringify(response));
       var bodyInit = JSON.parse(obj._bodyInit);
-      console.log("bodyInit:"+ bodyInit);
+      console.log("cart bodyInit:"+ bodyInit);
       this.obj = bodyInit.obj;
       var item = {};
       item = JSON.stringify(this.obj);
@@ -66,10 +66,45 @@ export class Cart extends React.Component {
         //isLoading: false,
         cartList : this.obj
       });
+      /*for (i = 0; i < this.obj.length; i++) {
+          console.log("sqft" + this.obj[i].squarefeet)
+          var serviceid = this.obj[i]._id
+          console.log("found serviceid" + serviceid)
+          fetch('https://cmpe235-finalproject.herokuapp.com/v1/service/getdescription', {
+             method: 'POST',
+             headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json',
+             },
+             body: JSON.stringify({
+             token: auth.getToken(),
+             id: serviceid
+           })
+          }).then(response => {
+            console.log("cartresponse1:"+JSON.stringify(response));
+            var obj1= JSON.parse(JSON.stringify(response));
+            var bodyInit1 = JSON.parse(obj1._bodyInit);
+            console.log("cartbodyInit1:"+ bodyInit1);
+            this.obj1 = bodyInit1.obj;
+            var item = {};
+            item = JSON.stringify(this.obj1);
+
+            this.setState({
+              //isLoading: false,
+              cartList : this.obj1
+            });
+        }).catch(error => {
+          console.error(error);
+        });
+      }*/
+      /*this.setState({
+        //isLoading: false,
+        cartList : this.obj
+      });*/
   }).catch(error => {
     console.error(error);
   });
-   }
+}
 
    _renderItem(info) {
        return (
@@ -77,7 +112,7 @@ export class Cart extends React.Component {
      <ScrollView style={styles.container}>
       <View style={styles.row}>
            <TouchableOpacity style={styles.rowButton}>
-             <RkText rkType='header6'>{info.item.squarefeet}  {info.item.price}</RkText>
+             <RkText rkType='header6'>{info.item.service_name}  {info.item.price}</RkText>
            </TouchableOpacity>
       </View>
      </ScrollView>)

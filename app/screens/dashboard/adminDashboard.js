@@ -21,7 +21,8 @@ import {Articles4} from '../articles/articles4';
 import {Upgrade} from '../theme/upgrade';
 import {Cart} from '../other/cart';
 import {
-  ServicesDoughnutChart
+  ServicesDoughnutChart,
+  UserCountChart
 } from '../../components/';
 
 import {FontIcons} from '../../assets/icons';
@@ -97,7 +98,9 @@ export class AdminDashboard extends React.Component {
             </RkText>
             <RkText rkType='h3'>View Energy Services</RkText>
           </RkButton>
-
+          <View style={chartBlockStyles}>
+              <UserCountChart/>
+          </View>
           <View style={chartBlockStyles}>
               <ServicesDoughnutChart/>
           </View>

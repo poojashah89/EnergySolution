@@ -103,7 +103,7 @@ export class RentServiceMenu1 extends React.Component {
         var item = {};
         item = JSON.stringify(this.obj);
         console.log("response1:"+ JSON.stringify(item));
-        console.log("response obj"+item.id);
+        console.log("customerrentmenu response obj"+item.id);
         console.log("response obj1 "+this.obj[0].photo);
         //5. set the array from the response to the list
         this.setState({
@@ -126,7 +126,7 @@ export class RentServiceMenu1 extends React.Component {
       <TouchableOpacity
         delayPressIn={70}
         activeOpacity={0.8}
-        onPress={() => this.props.navigation.navigate('RentService', {id: info.item.id})}>
+        onPress={() => this.props.navigation.navigate('RentService', {id: info.item.id, servicename: info.item.header})}>
         <RkCard rkType='backImg'>
           <Image rkCardImg source={{ uri: info.item.photo}}/>
           <View rkCardImgOverlay rkCardContent style={styles.overlay}>
